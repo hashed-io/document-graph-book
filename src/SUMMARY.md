@@ -1,4 +1,6 @@
 # Summary
+[Features](background/features.md)
+
 # Background
 - [Semantic Triples](background/triples.md)
 - [Data Migrations](background/migrations.md)
