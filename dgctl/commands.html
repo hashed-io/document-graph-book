@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Chapter 1 - Document Graph</title>
+        <title>Commands - Document Graph</title>
                 
 
         <!-- Custom HTML head -->
@@ -14,21 +14,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
-                <link rel="icon" href="favicon.svg">
-                        <link rel="shortcut icon" href="favicon.png">
-                <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-                <link rel="stylesheet" href="css/print.css" media="print">
+                <link rel="icon" href="../favicon.svg">
+                        <link rel="shortcut icon" href="../favicon.png">
+                <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+                <link rel="stylesheet" href="../css/print.css" media="print">
         
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-                <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+                <link rel="stylesheet" href="../fonts/fonts.css">
         
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="highlight.css">
-        <link rel="stylesheet" href="tomorrow-night.css">
-        <link rel="stylesheet" href="ayu-highlight.css">
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
         
@@ -36,7 +36,7 @@
     <body>
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
-            var path_to_root = "";
+            var path_to_root = "../";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
@@ -82,7 +82,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Chapter 1</a></li></ol>            </div>
+                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">Background</li><li class="chapter-item expanded "><a href="../background/triples.html"><strong aria-hidden="true">1.</strong> Semantic Triples</a></li><li class="chapter-item expanded "><a href="../background/migrations.html"><strong aria-hidden="true">2.</strong> Data Migrations</a></li><li class="chapter-item expanded "><a href="../background/use-cases.html"><strong aria-hidden="true">3.</strong> Use Cases</a></li><li class="chapter-item expanded "><a href="../background/links.html"><strong aria-hidden="true">4.</strong> Links</a></li><li class="chapter-item expanded affix "><li class="part-title">Specification</li><li class="chapter-item expanded "><a href="../specification/graph.html"><strong aria-hidden="true">5.</strong> Graph</a></li><li class="chapter-item expanded "><a href="../specification/documents.html"><strong aria-hidden="true">6.</strong> Documents</a></li><li class="chapter-item expanded "><a href="../specification/edges.html"><strong aria-hidden="true">7.</strong> Edges</a></li><li class="chapter-item expanded affix "><li class="part-title">Implementations</li><li class="chapter-item expanded "><a href="../specification/eosio.html"><strong aria-hidden="true">8.</strong> EOSIO</a></li><li class="chapter-item expanded "><a href="../specification/substrate.html"><strong aria-hidden="true">9.</strong> Substrate</a></li><li class="chapter-item expanded affix "><li class="part-title">dgctl CLI</li><li class="chapter-item expanded "><a href="../dgctl/installation.html"><strong aria-hidden="true">10.</strong> Installation</a></li><li class="chapter-item expanded "><a href="../dgctl/commands.html" class="active"><strong aria-hidden="true">11.</strong> Commands</a></li></ol>            </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
@@ -114,7 +114,7 @@
                     <h1 class="menu-title">Document Graph</h1>
 
                     <div class="right-buttons">
-                                                <a href="print.html" title="Print this book" aria-label="Print this book">
+                                                <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
                                                                         
@@ -143,13 +143,63 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="chapter-1"><a class="header" href="#chapter-1">Chapter 1</a></h1>
-<p><img src="mdbook-plantuml-img/78989bc2f1de18b47d669cbeaefd3ef8c6362d1f.svg" alt="" /></p>
+                        <hr />
+<h2>title: &quot;Commands&quot;
+description: &quot;&quot;
+lead: &quot;&quot;
+date: 2021-02-18T10:43:15-05:00
+lastmod: 2021-02-18T10:43:15-05:00
+draft: false
+images: []
+menu: 
+docs:
+parent: &quot;dgctl&quot;
+weight: 310
+toc: true</h2>
+<p><code>daoctl</code> remains under heavy development. Expect breaking changes.</p>
+<h4 id="commands"><a class="header" href="#commands">Commands</a></h4>
+<h5 id="view-roles"><a class="header" href="#view-roles">View Roles</a></h5>
+<pre><code>./daoctl get roles
+</code></pre>
+<h5 id="include-proposals"><a class="header" href="#include-proposals">Include proposals</a></h5>
+<pre><code>./daoctl get roles --include-proposals
+</code></pre>
+<h5 id="view-assignments"><a class="header" href="#view-assignments">View Assignments</a></h5>
+<pre><code>./daoctl get payouts
+</code></pre>
+<h5 id="view-treasury"><a class="header" href="#view-treasury">View Treasury</a></h5>
+<pre><code>./daoctl get treasury
+</code></pre>
+<h5 id="view-treasury-redemption-requests"><a class="header" href="#view-treasury-redemption-requests">View Treasury Redemption Requests</a></h5>
+<pre><code>./daoctl treasury get requests
+</code></pre>
+<h5 id="view-treasury-payments-fulfilling-requests"><a class="header" href="#view-treasury-payments-fulfilling-requests">View Treasury Payments (fulfilling requests)</a></h5>
+<pre><code>./daoctl treasury get payments
+</code></pre>
+<h5 id="view-details-of-a-ballot"><a class="header" href="#view-details-of-a-ballot">View Details of a Ballot</a></h5>
+<pre><code>./daoctl get ballot d4
+</code></pre>
+<h5 id="serve-prometheus-metrics"><a class="header" href="#serve-prometheus-metrics">Serve prometheus metrics</a></h5>
+<pre><code>./daoctl get ballot d4
+</code></pre>
+<h4 id="treasury-commands"><a class="header" href="#treasury-commands">Treasury Commands</a></h4>
+<p>The treasury requires multisig approvals from treasurers. See below for creating payment and attestation records.</p>
+<p>Submitting a new payment against a Redemption Request </p>
+<pre><code class="language-bash"># in the below command, the redemption_id is 6
+./daoctl --vault-file hyphanewyork.json treasury newpayment 6 &quot;3500.00 HUSD&quot; --network BTC --trxid b475e94c6a86dd18cce0ab7a1dfc9d0f94e20baf6c91317c14ce669da4111e1c --memo &quot;just a memo field for any additional context&quot;
+</code></pre>
+<p>Attesting to an existing payment. Treasurers have the responsibility of reviewing and validating transaction payments. To attest that a posted payment is true and accurate, use the <code>attest</code> command.</p>
+<pre><code class="language-bash"># in the below example, the paymentID is 4 and the requestID is 6
+./daoctl --vault-file hyphanewyork.json treasury attest 4 6 &quot;3500.00 HUSD&quot; 
+</code></pre>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                                                    <a rel="prev" href="../dgctl/installation.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
                         
                         
                         <div style="clear: both"></div>
@@ -158,6 +208,9 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                                    <a rel="prev" href="../dgctl/installation.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
                 
                             </nav>
 
@@ -171,13 +224,13 @@
         </script>
         
         
-                <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+                <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
         
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
         

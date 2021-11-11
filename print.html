@@ -83,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Chapter 1</a></li></ol>            </div>
+                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">Background</li><li class="chapter-item expanded "><a href="background/triples.html"><strong aria-hidden="true">1.</strong> Semantic Triples</a></li><li class="chapter-item expanded "><a href="background/migrations.html"><strong aria-hidden="true">2.</strong> Data Migrations</a></li><li class="chapter-item expanded "><a href="background/use-cases.html"><strong aria-hidden="true">3.</strong> Use Cases</a></li><li class="chapter-item expanded "><a href="background/links.html"><strong aria-hidden="true">4.</strong> Links</a></li><li class="chapter-item expanded affix "><li class="part-title">Specification</li><li class="chapter-item expanded "><a href="specification/graph.html"><strong aria-hidden="true">5.</strong> Graph</a></li><li class="chapter-item expanded "><a href="specification/documents.html"><strong aria-hidden="true">6.</strong> Documents</a></li><li class="chapter-item expanded "><a href="specification/edges.html"><strong aria-hidden="true">7.</strong> Edges</a></li><li class="chapter-item expanded affix "><li class="part-title">Implementations</li><li class="chapter-item expanded "><a href="specification/eosio.html"><strong aria-hidden="true">8.</strong> EOSIO</a></li><li class="chapter-item expanded "><a href="specification/substrate.html"><strong aria-hidden="true">9.</strong> Substrate</a></li><li class="chapter-item expanded affix "><li class="part-title">dgctl CLI</li><li class="chapter-item expanded "><a href="dgctl/installation.html"><strong aria-hidden="true">10.</strong> Installation</a></li><li class="chapter-item expanded "><a href="dgctl/commands.html"><strong aria-hidden="true">11.</strong> Commands</a></li></ol>            </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
@@ -144,8 +144,379 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="chapter-1"><a class="header" href="#chapter-1">Chapter 1</a></h1>
-<p><img src="mdbook-plantuml-img/78989bc2f1de18b47d669cbeaefd3ef8c6362d1f.svg" alt="" /></p>
+                        <div style="break-before: page; page-break-before: always;"></div><h1 id="semantic-triples"><a class="header" href="#semantic-triples">Semantic Triples</a></h1>
+<p>Databases typically store data in a tabular format, where a table has set of columns and rows, like a spreadsheet.</p>
+<p>However, IRL, we tend to think in statements of <code>Subject</code>, <code>Predicate</code> (<code>Verb</code>), and <code>Object</code>. This is particularly true in the English language where word order is subject, verb, object (SVO). This information construct is known as <code>triples</code>, or <a href="https://en.wikipedia.org/wiki/Semantic_triple">semantic triples</a>. The <a href="https://www.w3.org/RDF/">W3C Resource Description Framework</a> is a leading specification for organizing these statements into semantic triples. </p>
+<p>As Lenhert describes <a href="https://www.synaptica.com/triples-triads-and-semantics/">here</a>: </p>
+<blockquote>
+<p>&quot;One of the fundamental benefits of these RDF-based controlled vocabulary structures are their dual nature as being both human intelligible as well as machine readable (and, therefore, portable). Like their basic constituent subject-verb-object basis, ontologies convey rich meaning in relatively simple and compact statements, making them extremely useful in modeling complex knowledge environments.&quot;</p>
+</blockquote>
+<p>The following diagrams express semantic triples in various terms.</p>
+<h3 id="using-the-natural-english-a-hrefhttpsenwikipediaorgwikisubjecte28093verbe28093objectsova-terms"><a class="header" href="#using-the-natural-english-a-hrefhttpsenwikipediaorgwikisubjecte28093verbe28093objectsova-terms">Using the natural English <a href="https://en.wikipedia.org/wiki/Subject%E2%80%93verb%E2%80%93object">SOV</a> terms</a></h3>
+<p>PlantUML rendering error:
+Failed to render inline diagram (Failed to generate PlantUML diagrams, PlantUML exited with code 127 (sh: 1: /usr/bin/plantuml: not found
+).).</p>
+<h3 id="using-common-a-hrefhttpsenwikipediaorgwikivertex_graph_theorygraph-theorya-terms"><a class="header" href="#using-common-a-hrefhttpsenwikipediaorgwikivertex_graph_theorygraph-theorya-terms">Using common <a href="https://en.wikipedia.org/wiki/Vertex_(graph_theory)">graph theory</a> terms</a></h3>
+<p>PlantUML rendering error:
+Failed to render inline diagram (Failed to generate PlantUML diagrams, PlantUML exited with code 127 (sh: 1: /usr/bin/plantuml: not found
+).).</p>
+<h3 id="using-the-document-graph-terms"><a class="header" href="#using-the-document-graph-terms">Using the Document Graph terms</a></h3>
+<p>PlantUML rendering error:
+Failed to render inline diagram (Failed to generate PlantUML diagrams, PlantUML exited with code 127 (sh: 1: /usr/bin/plantuml: not found
+).).</p>
+<p>Note that edges are both directional and labeled.</p>
+<h3 id="simple-example-of-a-semantic-triple"><a class="header" href="#simple-example-of-a-semantic-triple">Simple Example of a Semantic Triple</a></h3>
+<p>PlantUML rendering error:
+Failed to render inline diagram (Failed to generate PlantUML diagrams, PlantUML exited with code 127 (sh: 1: /usr/bin/plantuml: not found
+).).</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="blockchain-change-management"><a class="header" href="#blockchain-change-management">Blockchain Change Management</a></h2>
+<p>At their core, blockchains are used to manage data and state changes on that data. The structure of this data is nearly always based on a custom-built struct within a pallet or smart contract. Applications that are built on blockchains are typically built for a specific smart contract’s data structure, and the application is highly coupled to that application.  When a data structure changes, it typically requires a complex migration of existing data and source code within the smart contract as well as perhaps changes to other backend or service layers and the application itself. </p>
+<p>For example, assume the overly simplified struct within a smart contract. Upon an approval, the amount would be sent to the account indicated.</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>pub struct Proposal {
+    pub label: str,
+    pub account: AccountId,
+    pub amount: u32,
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Then, let's say the DAO wants to add support for recurring payments. This would need to be supported within the data model by adding a time period to use as the recurring period and the total number of payments.</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>pub struct Proposal {
+    pub title: str,
+    pub account: AccountId,
+    pub amount: u32,
+    pub time_period_seconds: u32,
+    pub payment_count: u32,
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Depending on the blockchain, this change management event requires a series of gymnastics by developers to maintain a reasonable user experience. For example, on non-upgradable platforms, it may require clients to query from both structs, or if upgradable, may require erasing data from the original data store and recreating it (losing metadata in the process). Some may require maintaining both structures and adding a roll-up of sorts to maintain client backwards compatibility.</p>
+<p>All of these complications create a significant change management burden on software developers.</p>
+<h3 id="document-graph-solves-this"><a class="header" href="#document-graph-solves-this">Document Graph Solves This</a></h3>
+<p>Document Graph alleviates the need for developers to change their persistence layer when making upgrades to their data model. </p>
+<p>This is achieved by supporting flexible variant pairs within a consistently structured <code>document</code> type and support for an <code>edge</code> type used to link the graph's documents in meaningful ways. </p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="use-cases"><a class="header" href="#use-cases">Use Cases</a></h1>
+<p>Document Graph is currently used for a number of use cases. Here are some real-world examples that we are using it for. Interestingly, all of the below use cases can be handled within the same graph where nodes can be linked to each other across contexts.</p>
+<h3 id="daos"><a class="header" href="#daos">DAOs</a></h3>
+<p>DAOs have have descriptive attributes. They also have members, proposals, assignments, quests, bounties, badges, and many other data types that are maintained to support a fully functional platform. </p>
+<p>Here's an actual example of how Document Graph is used to manage a few components within a DAO's information space. </p>
+<p><img src="background/graph-example.png" alt="Example Graph" /></p>
+<h3 id="supply-chain"><a class="header" href="#supply-chain">Supply Chain</a></h3>
+<p>We use Document Graph for a supply chain traceability application. An <code>Item</code> and its various <code>Checkpoints</code> are saved as <code>documents</code>. When a new QR code <code>scan</code> event occurs, it extends the graph for that item to contain a new <code>Checkpoint</code>.</p>
+<p>Since a <code>Checkpoint</code> is a document, it can store any arbitrary data that describes that event, such as weight, longitude, latitude, cost, and even photos or other files such as packing lists. Files are stored in IPFS and anchored into the on-chain document. </p>
+<p>Users have the option to save data directly onto the chain (for access within smart contracts) or to save the data to IPFS. Users also have the option to encrypt the data with a password of their choice.</p>
+<p>PlantUML rendering error:
+Failed to render inline diagram (Failed to generate PlantUML diagrams, PlantUML exited with code 127 (sh: 1: /usr/bin/plantuml: not found
+).).</p>
+<h3 id="accounting"><a class="header" href="#accounting">Accounting</a></h3>
+<p>We also use the Document Graph to store data required to operate a double-entry accounting system. This system allows users to generate classical accounting reports such as Balance Sheet and Income Statement from blockchain transactions.</p>
+<p>Accountants must be able to tag transactions with additional data, references, files, etc., and they must also be able to assign a general ledger account to appropriately calculate debits and credits.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="useful-links"><a class="header" href="#useful-links">Useful Links</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="graph"><a class="header" href="#graph">Graph</a></h1>
+<h3 id="graph-composed-of-nodes-and-edges"><a class="header" href="#graph-composed-of-nodes-and-edges">Graph composed of Nodes and Edges</a></h3>
+<p>A Document Graph is a set of documents that are connected with 0..n labeled, directional edges.</p>
+<h3 id="specification"><a class="header" href="#specification">Specification</a></h3>
+<ul>
+<li>A document may have many edges with the same label.</li>
+<li>A document may link to another document many times.</li>
+<li>Edges that connect the same documents in the same direction must have unique labels.</li>
+</ul>
+<p>PlantUML rendering error:
+Failed to render inline diagram (Failed to generate PlantUML diagrams, PlantUML exited with code 127 (sh: 1: /usr/bin/plantuml: not found
+).).</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="document-data-model"><a class="header" href="#document-data-model">Document Data Model</a></h2>
+<p>PlantUML rendering error:
+Failed to render inline diagram (Failed to generate PlantUML diagrams, PlantUML exited with code 127 (sh: 1: /usr/bin/plantuml: not found
+).).</p>
+<p>Each document is comprised of the following:</p>
+<ul>
+<li>Header 
+<ul>
+<li>[required] creator (account)</li>
+<li>[required] graph contract (where the document is saved)</li>
+<li>[optional] created date (timepoint)</li>
+<li>[optional] updated date (timepoint)</li>
+<li>[optional] hash of content (not including certificates or header)</li>
+</ul>
+</li>
+<li>Content
+<ul>
+<li>Value (variant) = <code>std::variant &lt;asset, string, time_point, name, int64&gt; </code></li>
+<li>Content = an optionally labeled FlexValue</li>
+<li>Content Group = vector<Content></li>
+<li>Content Groups = vector<ContentGroup></li>
+<li>Each document contains a single instance of ContentGroups.</li>
+<li>This provides enough flexibility to support: 
+<ul>
+<li>data of all supported types,</li>
+<li>short clauses of annotated text,</li>
+<li>longer form sequenced data, e.g. chapters. </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Certificates [optional]
+<ul>
+<li>Each document has <code>O..n</code> certificates.</li>
+<li>Certificate 
+<ul>
+<li>certifier: the 'signer' </li>
+<li>notes: string data provided by signer</li>
+<li>certification_date: time_point    </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="edge-data-model"><a class="header" href="#edge-data-model">Edge Data Model</a></h2>
+<p>PlantUML rendering error:
+Failed to render inline diagram (Failed to generate PlantUML diagrams, PlantUML exited with code 127 (sh: 1: /usr/bin/plantuml: not found
+).).</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="eosio-implementation"><a class="header" href="#eosio-implementation">EOSIO Implementation</a></h1>
+<p>For the full smart contracts, see the <a href="https://github.com/hashed-io/document-graph">Github repository</a></p>
+<p>EOSIO (c++) implementation of the types of the Document Graph smart contract:</p>
+<h3 id="flexvalue-type"><a class="header" href="#flexvalue-type"><code>FlexValue</code> type</a></h3>
+<p>The <code>FlexValue</code> type is a variant that supports all of the common data types supported in the C++/WASM SDK for EOSIO. It stores the data as an array, where the first value is a <code>uint8</code> representing the index of the type in the <code>typedef</code> definition, followed by the actual value.</p>
+<pre><code class="language-c++">    typedef std::variant&lt;std::monostate, 
+                         eosio::name, 
+                         std::string, 
+                         eosio::asset, 
+                         eosio::time_point,
+                         std::int64_t, 
+                         eosio::checksum256&gt;
+            FlexValue;
+</code></pre>
+<h3 id="content-type"><a class="header" href="#content-type"><code>Content</code> type</a></h3>
+<p>The <code>Content</code> type is simply a <code>FlexValue</code> with an optional label. The smart contract also creates an alias for <code>ContentGroup</code> and <code>ContentGroups</code> to organize the lists of <code>Content</code>. </p>
+<p>It is common for <code>ContentGroups</code> to be labeled by using a <code>Content</code> item with a label of <code>content_group_label</code>.</p>
+<pre><code class="language-c++">    struct Content {
+        std::string label;
+        FlexValue value;
+    };
+
+    using ContentGroup = std::vector&lt;Content&gt;;
+    using ContentGroups = std::vector&lt;ContentGroup&gt;;
+</code></pre>
+<h4 id="example-content-group-serialized-to-json"><a class="header" href="#example-content-group-serialized-to-json">Example Content Group serialized to json</a></h4>
+<pre><code class="language-json">    &quot;content_groups&quot;: [
+        [
+            {
+                &quot;label&quot;: &quot;content_group_name&quot;,
+                &quot;value&quot;: [
+                    &quot;string&quot;,
+                    &quot;My Salary Content Group&quot;
+                ]
+            },
+            {
+                &quot;label&quot;: &quot;salary_amount&quot;,
+                &quot;value&quot;: [
+                    &quot;asset&quot;,
+                    &quot;130.00 USD&quot;
+                ]
+            },
+            {
+                &quot;label&quot;: &quot;recipient&quot;,
+                &quot;value&quot;: [
+                    &quot;name&quot;,
+                    &quot;daomember&quot;
+                ]
+            }
+        ]
+    ]
+</code></pre>
+<h3 id="certificate-type"><a class="header" href="#certificate-type"><code>Certificate</code> type</a></h3>
+<p>The <code>Certificate</code> type represents an account that is certifying, or attesting to, the content within that document. It includes the account name and optional notes for the signer. Of course, the signature from the certifier is required for creation of the certificate.</p>
+<blockquote>
+<p>Certificates will likely be replaced with <a href="https://www.w3.org/TR/vc-data-model/">verifiable credentials</a></p>
+</blockquote>
+<pre><code class="language-c++">    struct Certificate
+    {
+        eosio::name certifier;
+        std::string notes;
+        eosio::time_point certification_date = eosio::current_time_point();
+    };
+</code></pre>
+<h3 id="document-type"><a class="header" href="#document-type"><code>Document</code> type</a></h3>
+<p>The <code>Document</code> type stores the header information, <code>ContentGroups</code>, and a list of <code>Certificates</code>.</p>
+<pre><code class="language-c++">    struct Document 
+    {
+        std::uint64_t id;
+        eosio::checksum256 hash;
+        eosio::name creator;
+        ContentGroups content_groups;
+        std::vector&lt;Certificate&gt; certificates;
+        eosio::time_point created_date;
+        eosio::name contract;
+    };
+</code></pre>
+<h3 id="example-document-serialized-to-json"><a class="header" href="#example-document-serialized-to-json">Example Document serialized to json</a></h3>
+<pre><code class="language-json">{
+    &quot;id&quot;:4965,
+    &quot;hash&quot;:&quot;50be6cf143050a11e9db3a52ef68e10e07b07cf6cc68007ad46a14baf307c5b9&quot;,
+    &quot;creator&quot;: &quot;bob&quot;,
+    &quot;content_groups&quot;: [
+        [
+            {
+                &quot;label&quot;: &quot;content_group_name&quot;,
+                &quot;value&quot;: [
+                    &quot;string&quot;,
+                    &quot;My Content Group #1&quot;
+                ]
+            },
+            {
+                &quot;label&quot;: &quot;salary_amount&quot;,
+                &quot;value&quot;: [
+                    &quot;asset&quot;,
+                    &quot;130.00 USD&quot;
+                ]
+            },
+            {
+                &quot;label&quot;: &quot;referrer&quot;,
+                &quot;value&quot;: [
+                    &quot;name&quot;,
+                    &quot;friendacct&quot;
+                ]
+            },
+            {
+                &quot;label&quot;: &quot;vote_count&quot;,
+                &quot;value&quot;: [
+                    &quot;int64&quot;,
+                    67
+                ]
+            }
+        ]
+    ],
+    &quot;certificates&quot;:[],
+    &quot;created_date&quot;:&quot;2021-01-12T18:21:10.000&quot;,
+    &quot;contract&quot;:&quot;dao.hypha&quot;
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h3 id="substrate-implementation-coming-soon"><a class="header" href="#substrate-implementation-coming-soon">Substrate Implementation (coming soon)</a></h3>
+<div style="break-before: page; page-break-before: always;"></div><p><code>daoctl</code> is an open source, command line application for Document Graph organizations written in Go. It is also a secure wallet for managing private keys and submitted transactions.</p>
+<h4 id="build"><a class="header" href="#build">Build</a></h4>
+<p>Building <code>daoctl</code> requires Go v15 and above.</p>
+<pre><code>git clone https://github.com/hypha-dao/daoctl/
+cd daoctl
+go build
+./daoctl -h
+</code></pre>
+<h4 id="download-binary"><a class="header" href="#download-binary">Download binary</a></h4>
+<p>https://github.com/hypha-dao/daoctl/releases</p>
+<h4 id="run-help"><a class="header" href="#run-help">Run help</a></h4>
+<pre><code>./daoctl --help                                                                                                                                     ST 4   master
+Decentralized Autonomous Organization (DAO) control application for Hypha DAO query and actions.
+Query and manage roles, assignments, periods, payouts, and proposals.
+
+Example use:
+	daoctl get assignments --include-proposals
+	daoctl get treasury
+
+Hypha - Dapps for a New World - visit online @ hypha.earth
+
+Usage:
+  daoctl [command]
+
+Available Commands:
+  backup      creates a local backup of current DAO data
+  close       close a proposal
+  create      create an object (e.g. proposal) based on the JSON file
+  edit        propose an edit to an object
+  get         get objects from the DAO on-chain smart contract
+  help        Help about any command
+  propose     propose a role
+  query       Query action history on the DAO for specific users
+  serve       Start the Hypha prometheus metrics server
+  set         set data on the DAO on-chain smart contract
+  treasury    multi-chain token/value redemption module
+  vault       The vault is a secure key store (wallet). Your key is stored encrypted by the passphrase.
+  vote        vote pass or fail on a ballot
+
+Flags:
+  -a, --active               show active objects (default true)
+      --config string        config file (default is ./daoctl.yaml)
+      --csv                  Output data as CSV to console - not supported on all commands yet
+      --debug                Enables verbose debug messages
+      --expiration int       Set time before transaction expires, in seconds. Defaults to 30 seconds. (default 30)
+      --failed-proposals     include a table with failed proposals
+  -f, --file string          filename
+  -h, --help                 help for daoctl
+  -o, --include-archive      include a table with the archive objects
+      --include-proposals    include a table with proposals in the output
+      --output-file string   Output CSV data to file - not supported on all commands yet (default &quot;output.csv&quot;)
+      --vault-file string    Wallet file that contains encrypted key material (default &quot;./eosc-vault.json&quot;)
+
+Use &quot;daoctl [command] --help&quot; for more information about a command.
+</code></pre>
+<h4 id="sample-configurationyaml"><a class="header" href="#sample-configurationyaml">Sample configuration.yaml</a></h4>
+<p>Here's a sample configuration file for the testnet. You can save as a file and use <code>--config</code> then the file name as a parameter.</p>
+<pre><code class="language-yaml">EosioEndpoint: https://test.telos.kitchen
+AssetsAsFloat: true
+DAOContract: dao.hypha
+Treasury:
+  TokenContract: husd.hypha
+  Symbol: HUSD
+  Contract: bank.hypha
+  EthUSDTContract: 0xdac17f958d2ee523a2206206994597c13d831ec7
+  EthUSDTAddress: 0xC20f453a4B4995CA032570f212988F4978B35dDd
+  BtcAddress: 35hfgfaUouzYixTUDV6CFqMiTSZcuNtTf9
+TelosDecideContract: trailservice
+DAOUser: treasurermmm
+HyperionEndpoint: https://testnet.telosusa.io/v2
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><hr />
+<h2>title: &quot;Commands&quot;
+description: &quot;&quot;
+lead: &quot;&quot;
+date: 2021-02-18T10:43:15-05:00
+lastmod: 2021-02-18T10:43:15-05:00
+draft: false
+images: []
+menu: 
+docs:
+parent: &quot;dgctl&quot;
+weight: 310
+toc: true</h2>
+<p><code>daoctl</code> remains under heavy development. Expect breaking changes.</p>
+<h4 id="commands"><a class="header" href="#commands">Commands</a></h4>
+<h5 id="view-roles"><a class="header" href="#view-roles">View Roles</a></h5>
+<pre><code>./daoctl get roles
+</code></pre>
+<h5 id="include-proposals"><a class="header" href="#include-proposals">Include proposals</a></h5>
+<pre><code>./daoctl get roles --include-proposals
+</code></pre>
+<h5 id="view-assignments"><a class="header" href="#view-assignments">View Assignments</a></h5>
+<pre><code>./daoctl get payouts
+</code></pre>
+<h5 id="view-treasury"><a class="header" href="#view-treasury">View Treasury</a></h5>
+<pre><code>./daoctl get treasury
+</code></pre>
+<h5 id="view-treasury-redemption-requests"><a class="header" href="#view-treasury-redemption-requests">View Treasury Redemption Requests</a></h5>
+<pre><code>./daoctl treasury get requests
+</code></pre>
+<h5 id="view-treasury-payments-fulfilling-requests"><a class="header" href="#view-treasury-payments-fulfilling-requests">View Treasury Payments (fulfilling requests)</a></h5>
+<pre><code>./daoctl treasury get payments
+</code></pre>
+<h5 id="view-details-of-a-ballot"><a class="header" href="#view-details-of-a-ballot">View Details of a Ballot</a></h5>
+<pre><code>./daoctl get ballot d4
+</code></pre>
+<h5 id="serve-prometheus-metrics"><a class="header" href="#serve-prometheus-metrics">Serve prometheus metrics</a></h5>
+<pre><code>./daoctl get ballot d4
+</code></pre>
+<h4 id="treasury-commands"><a class="header" href="#treasury-commands">Treasury Commands</a></h4>
+<p>The treasury requires multisig approvals from treasurers. See below for creating payment and attestation records.</p>
+<p>Submitting a new payment against a Redemption Request </p>
+<pre><code class="language-bash"># in the below command, the redemption_id is 6
+./daoctl --vault-file hyphanewyork.json treasury newpayment 6 &quot;3500.00 HUSD&quot; --network BTC --trxid b475e94c6a86dd18cce0ab7a1dfc9d0f94e20baf6c91317c14ce669da4111e1c --memo &quot;just a memo field for any additional context&quot;
+</code></pre>
+<p>Attesting to an existing payment. Treasurers have the responsibility of reviewing and validating transaction payments. To attest that a posted payment is true and accurate, use the <code>attest</code> command.</p>
+<pre><code class="language-bash"># in the below example, the paymentID is 4 and the requestID is 6
+./daoctl --vault-file hyphanewyork.json treasury attest 4 6 &quot;3500.00 HUSD&quot; 
+</code></pre>
 
                     </main>
 

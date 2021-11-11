@@ -3,9 +3,8 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title></title>
-                        <base href="/">
-        
+        <title>Use Cases - Document Graph</title>
+                
 
         <!-- Custom HTML head -->
         
@@ -15,21 +14,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
-                <link rel="icon" href="favicon.svg">
-                        <link rel="shortcut icon" href="favicon.png">
-                <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-                <link rel="stylesheet" href="css/print.css" media="print">
+                <link rel="icon" href="../favicon.svg">
+                        <link rel="shortcut icon" href="../favicon.png">
+                <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+                <link rel="stylesheet" href="../css/print.css" media="print">
         
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-                <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+                <link rel="stylesheet" href="../fonts/fonts.css">
         
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="highlight.css">
-        <link rel="stylesheet" href="tomorrow-night.css">
-        <link rel="stylesheet" href="ayu-highlight.css">
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
         
@@ -37,7 +36,7 @@
     <body>
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
-            var path_to_root = "";
+            var path_to_root = "../";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
@@ -83,7 +82,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">Background</li><li class="chapter-item expanded "><a href="background/triples.html"><strong aria-hidden="true">1.</strong> Semantic Triples</a></li><li class="chapter-item expanded "><a href="background/migrations.html"><strong aria-hidden="true">2.</strong> Data Migrations</a></li><li class="chapter-item expanded "><a href="background/use-cases.html"><strong aria-hidden="true">3.</strong> Use Cases</a></li><li class="chapter-item expanded "><a href="background/links.html"><strong aria-hidden="true">4.</strong> Links</a></li><li class="chapter-item expanded affix "><li class="part-title">Specification</li><li class="chapter-item expanded "><a href="specification/graph.html"><strong aria-hidden="true">5.</strong> Graph</a></li><li class="chapter-item expanded "><a href="specification/documents.html"><strong aria-hidden="true">6.</strong> Documents</a></li><li class="chapter-item expanded "><a href="specification/edges.html"><strong aria-hidden="true">7.</strong> Edges</a></li><li class="chapter-item expanded affix "><li class="part-title">Implementations</li><li class="chapter-item expanded "><a href="specification/eosio.html"><strong aria-hidden="true">8.</strong> EOSIO</a></li><li class="chapter-item expanded "><a href="specification/substrate.html"><strong aria-hidden="true">9.</strong> Substrate</a></li><li class="chapter-item expanded affix "><li class="part-title">dgctl CLI</li><li class="chapter-item expanded "><a href="dgctl/installation.html"><strong aria-hidden="true">10.</strong> Installation</a></li><li class="chapter-item expanded "><a href="dgctl/commands.html"><strong aria-hidden="true">11.</strong> Commands</a></li></ol>            </div>
+                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">Background</li><li class="chapter-item expanded "><a href="../background/triples.html"><strong aria-hidden="true">1.</strong> Semantic Triples</a></li><li class="chapter-item expanded "><a href="../background/migrations.html"><strong aria-hidden="true">2.</strong> Data Migrations</a></li><li class="chapter-item expanded "><a href="../background/use-cases.html" class="active"><strong aria-hidden="true">3.</strong> Use Cases</a></li><li class="chapter-item expanded "><a href="../background/links.html"><strong aria-hidden="true">4.</strong> Links</a></li><li class="chapter-item expanded affix "><li class="part-title">Specification</li><li class="chapter-item expanded "><a href="../specification/graph.html"><strong aria-hidden="true">5.</strong> Graph</a></li><li class="chapter-item expanded "><a href="../specification/documents.html"><strong aria-hidden="true">6.</strong> Documents</a></li><li class="chapter-item expanded "><a href="../specification/edges.html"><strong aria-hidden="true">7.</strong> Edges</a></li><li class="chapter-item expanded affix "><li class="part-title">Implementations</li><li class="chapter-item expanded "><a href="../specification/eosio.html"><strong aria-hidden="true">8.</strong> EOSIO</a></li><li class="chapter-item expanded "><a href="../specification/substrate.html"><strong aria-hidden="true">9.</strong> Substrate</a></li><li class="chapter-item expanded affix "><li class="part-title">dgctl CLI</li><li class="chapter-item expanded "><a href="../dgctl/installation.html"><strong aria-hidden="true">10.</strong> Installation</a></li><li class="chapter-item expanded "><a href="../dgctl/commands.html"><strong aria-hidden="true">11.</strong> Commands</a></li></ol>            </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
@@ -115,7 +114,7 @@
                     <h1 class="menu-title">Document Graph</h1>
 
                     <div class="right-buttons">
-                                                <a href="print.html" title="Print this book" aria-label="Print this book">
+                                                <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
                                                                         
@@ -144,14 +143,34 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="document-not-found-404"><a class="header" href="#document-not-found-404">Document not found (404)</a></h1>
-<p>This URL is invalid, sorry. Please use the navigation bar or search to continue.</p>
+                        <h1 id="use-cases"><a class="header" href="#use-cases">Use Cases</a></h1>
+<p>Document Graph is currently used for a number of use cases. Here are some real-world examples that we are using it for. Interestingly, all of the below use cases can be handled within the same graph where nodes can be linked to each other across contexts.</p>
+<h3 id="daos"><a class="header" href="#daos">DAOs</a></h3>
+<p>DAOs have have descriptive attributes. They also have members, proposals, assignments, quests, bounties, badges, and many other data types that are maintained to support a fully functional platform. </p>
+<p>Here's an actual example of how Document Graph is used to manage a few components within a DAO's information space. </p>
+<p><img src="graph-example.png" alt="Example Graph" /></p>
+<h3 id="supply-chain"><a class="header" href="#supply-chain">Supply Chain</a></h3>
+<p>We use Document Graph for a supply chain traceability application. An <code>Item</code> and its various <code>Checkpoints</code> are saved as <code>documents</code>. When a new QR code <code>scan</code> event occurs, it extends the graph for that item to contain a new <code>Checkpoint</code>.</p>
+<p>Since a <code>Checkpoint</code> is a document, it can store any arbitrary data that describes that event, such as weight, longitude, latitude, cost, and even photos or other files such as packing lists. Files are stored in IPFS and anchored into the on-chain document. </p>
+<p>Users have the option to save data directly onto the chain (for access within smart contracts) or to save the data to IPFS. Users also have the option to encrypt the data with a password of their choice.</p>
+<p>PlantUML rendering error:
+Failed to render inline diagram (Failed to generate PlantUML diagrams, PlantUML exited with code 127 (sh: 1: /usr/bin/plantuml: not found
+).).</p>
+<h3 id="accounting"><a class="header" href="#accounting">Accounting</a></h3>
+<p>We also use the Document Graph to store data required to operate a double-entry accounting system. This system allows users to generate classical accounting reports such as Balance Sheet and Income Statement from blockchain transactions.</p>
+<p>Accountants must be able to tag transactions with additional data, references, files, etc., and they must also be able to assign a general ledger account to appropriately calculate debits and credits.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                                                    <a rel="prev" href="../background/migrations.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
                         
+                                                    <a rel="next" href="../background/links.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
                         
                         <div style="clear: both"></div>
                     </nav>
@@ -159,7 +178,13 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                                    <a rel="prev" href="../background/migrations.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
                 
+                                    <a rel="next" href="../background/links.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
                             </nav>
 
         </div>
@@ -172,13 +197,13 @@
         </script>
         
         
-                <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+                <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
         
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
         
