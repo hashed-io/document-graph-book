@@ -12,10 +12,10 @@ Document Graph has integrated support for storing data or files within IPFS and 
 ## Encryption Support
 Document Graph Explorer supports encryption of a specific content item’s value. In DGE, the user is prompted to enter a password that is used for symmetric AES encryption. This secret simply encrypts the value and the ciphertext is persisted in the document. 
 
-In a future release, we can integrate it with the Khala/Phala confidential blockchain. Also, we are evaluating integration with PAD (https://www.pad.tech/) as a trustless way to share the secret in a manner that alerts the owner when the secret is accessed. This is useful for interesting use cases such as one-time decrypt use cases and “in case of emergency” use cases.
+In a future release, we may integrate with the [Khala/Phala](https://phala.network/en/) confidential blockchain. Also, we are evaluating integration with [PAD](https://www.pad.tech/) as a trustless way to share the secret in a manner that alerts the owner when the secret is accessed. This is useful for interesting use cases such as one-time decrypt use cases and “in case of emergency” use cases.
 
 ## GraphQL Caching
-Document Graph supports easy integration with DGraph, an open source distributed graph engine. The document graph cache listens for new blocks, and upon finalization, updates the DGraph graph to reflect any updates to the on-chain graph. DGraph has excellent tooling and ergonomics for querying, custom types or schemas, data visualizer, full-text search, and much more. 
+Document Graph supports easy integration with [DGraph](https://dgraph.io), an open source distributed graph engine. The document graph cache listens for new blocks, and upon finalization, updates the DGraph graph to reflect any updates to the on-chain graph. DGraph has excellent tooling and ergonomics for querying, custom types or schemas, data visualizer, full-text search, and much more. 
 
 ## Composable SDK Experience (CLI)
 Document Graph is built to be highly composable and also support an ergonomic developer experience. In addition to the Document Graph Explorer web application, there is a CLI (written in Go) that supports all of the create, read, update, and delete operations directly against the blockchain. 

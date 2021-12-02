@@ -1,5 +1,5 @@
 # Summary
-[Features](background/features.md)
+[Introduction](background/introduction.md)
 
 # Background
 - [Semantic Triples](background/triples.md)
@@ -8,6 +8,7 @@
 - [Links](background/links.md)
 
 # Specification
+- [Features](specification/features.md)
 - [Graph](specification/graph.md)
 - [Documents](specification/documents.md)
 - [Edges](specification/edges.md)
