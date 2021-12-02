@@ -76,7 +76,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="background/features.html">Features</a></li><li class="chapter-item expanded affix "><li class="part-title">Background</li><li class="chapter-item expanded "><a href="background/triples.html"><strong aria-hidden="true">1.</strong> Semantic Triples</a></li><li class="chapter-item expanded "><a href="background/migrations.html"><strong aria-hidden="true">2.</strong> Data Migrations</a></li><li class="chapter-item expanded "><a href="background/use-cases.html"><strong aria-hidden="true">3.</strong> Use Cases</a></li><li class="chapter-item expanded "><a href="background/links.html"><strong aria-hidden="true">4.</strong> Links</a></li><li class="chapter-item expanded affix "><li class="part-title">Specification</li><li class="chapter-item expanded "><a href="specification/graph.html"><strong aria-hidden="true">5.</strong> Graph</a></li><li class="chapter-item expanded "><a href="specification/documents.html"><strong aria-hidden="true">6.</strong> Documents</a></li><li class="chapter-item expanded "><a href="specification/edges.html"><strong aria-hidden="true">7.</strong> Edges</a></li><li class="chapter-item expanded affix "><li class="part-title">Implementations</li><li class="chapter-item expanded "><a href="specification/eosio.html"><strong aria-hidden="true">8.</strong> EOSIO</a></li><li class="chapter-item expanded "><a href="specification/substrate.html"><strong aria-hidden="true">9.</strong> Substrate</a></li><li class="chapter-item expanded affix "><li class="part-title">dgctl CLI</li><li class="chapter-item expanded "><a href="dgctl/installation.html"><strong aria-hidden="true">10.</strong> Installation</a></li><li class="chapter-item expanded "><a href="dgctl/commands.html"><strong aria-hidden="true">11.</strong> Commands</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="background/introduction.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">Background</li><li class="chapter-item expanded "><a href="background/triples.html"><strong aria-hidden="true">1.</strong> Semantic Triples</a></li><li class="chapter-item expanded "><a href="background/migrations.html"><strong aria-hidden="true">2.</strong> Data Migrations</a></li><li class="chapter-item expanded "><a href="background/use-cases.html"><strong aria-hidden="true">3.</strong> Use Cases</a></li><li class="chapter-item expanded "><a href="background/links.html"><strong aria-hidden="true">4.</strong> Links</a></li><li class="chapter-item expanded affix "><li class="part-title">Specification</li><li class="chapter-item expanded "><a href="specification/features.html"><strong aria-hidden="true">5.</strong> Features</a></li><li class="chapter-item expanded "><a href="specification/graph.html"><strong aria-hidden="true">6.</strong> Graph</a></li><li class="chapter-item expanded "><a href="specification/documents.html"><strong aria-hidden="true">7.</strong> Documents</a></li><li class="chapter-item expanded "><a href="specification/edges.html"><strong aria-hidden="true">8.</strong> Edges</a></li><li class="chapter-item expanded affix "><li class="part-title">Implementations</li><li class="chapter-item expanded "><a href="specification/eosio.html"><strong aria-hidden="true">9.</strong> EOSIO</a></li><li class="chapter-item expanded "><a href="specification/substrate.html"><strong aria-hidden="true">10.</strong> Substrate</a></li><li class="chapter-item expanded affix "><li class="part-title">dgctl CLI</li><li class="chapter-item expanded "><a href="dgctl/installation.html"><strong aria-hidden="true">11.</strong> Installation</a></li><li class="chapter-item expanded "><a href="dgctl/commands.html"><strong aria-hidden="true">12.</strong> Commands</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -135,21 +135,11 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="features"><a class="header" href="#features">Features</a></h1>
-<h2 id="end-user-accessibility"><a class="header" href="#end-user-accessibility">End-user Accessibility</a></h2>
-<p>The Document Graph Explorer allows for any user with a blockchain account to create and edit content that they own within the graph, and they may create between any two nodes in the graph.</p>
-<p>This level of accessibility to non-technical users is unprecedented. It allows them to collaboratively create and connect content with all of the benefits of blockchain. This level of capability was previously only accessible to highly technical engineers.</p>
-<h2 id="file-and-ipfs-integration"><a class="header" href="#file-and-ipfs-integration">File and IPFS Integration</a></h2>
-<p>Document Graph has integrated support for storing data or files within IPFS and saving that files’ CID (hash) within the document. </p>
-<h2 id="encryption-support"><a class="header" href="#encryption-support">Encryption Support</a></h2>
-<p>Document Graph Explorer supports encryption of a specific content item’s value. In DGE, the user is prompted to enter a password that is used for symmetric AES encryption. This secret simply encrypts the value and the ciphertext is persisted in the document. </p>
-<p>In a future release, we can integrate it with the Khala/Phala confidential blockchain. Also, we are evaluating integration with PAD (https://www.pad.tech/) as a trustless way to share the secret in a manner that alerts the owner when the secret is accessed. This is useful for interesting use cases such as one-time decrypt use cases and “in case of emergency” use cases.</p>
-<h2 id="graphql-caching"><a class="header" href="#graphql-caching">GraphQL Caching</a></h2>
-<p>Document Graph supports easy integration with DGraph, an open source distributed graph engine. The document graph cache listens for new blocks, and upon finalization, updates the DGraph graph to reflect any updates to the on-chain graph. DGraph has excellent tooling and ergonomics for querying, custom types or schemas, data visualizer, full-text search, and much more. </p>
-<h2 id="composable-sdk-experience-cli"><a class="header" href="#composable-sdk-experience-cli">Composable SDK Experience (CLI)</a></h2>
-<p>Document Graph is built to be highly composable and also support an ergonomic developer experience. In addition to the Document Graph Explorer web application, there is a CLI (written in Go) that supports all of the create, read, update, and delete operations directly against the blockchain. </p>
-<h2 id="plugin-architecture-for-custom-renderers-and-editors"><a class="header" href="#plugin-architecture-for-custom-renderers-and-editors">Plugin Architecture for Custom Renderers and Editors</a></h2>
-<p>Developers can include special fields within their document to enable custom viewers or editors. For example, if the field “preferred_renderer” or “preferred_editor” is populated with an endpoint, this endpoint will be used to render or edit the document.</p>
+                        <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
+<p>Document Graph is a flexible persistence and modeling framework for blockchain applications.</p>
+<h2 id="smart-contracts"><a class="header" href="#smart-contracts">Smart Contracts</a></h2>
+<h2 id=""><a class="header" href="#"></a></h2>
+<p><img src="background/graph-example.png" alt="Example Graph" /></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="semantic-triples"><a class="header" href="#semantic-triples">Semantic Triples</a></h1>
 <p>Databases typically store data in a tabular format, where a table has set of columns and rows, like a spreadsheet.</p>
 <p>However, IRL, we tend to think in statements of <code>Subject</code>, <code>Predicate</code> (<code>Verb</code>), and <code>Object</code>. This is particularly true in the English language where word order is subject, verb, object (SVO). This information construct is known as <code>triples</code>, or <a href="https://en.wikipedia.org/wiki/Semantic_triple">semantic triples</a>. The <a href="https://www.w3.org/RDF/">W3C Resource Description Framework</a> is a leading specification for organizing these statements into semantic triples. </p>
@@ -158,9 +148,9 @@
 <p>&quot;One of the fundamental benefits of these RDF-based controlled vocabulary structures are their dual nature as being both human intelligible as well as machine readable (and, therefore, portable). Like their basic constituent subject-verb-object basis, ontologies convey rich meaning in relatively simple and compact statements, making them extremely useful in modeling complex knowledge environments.&quot;</p>
 </blockquote>
 <p>The following diagrams express semantic triples in various terms.</p>
-<h3 id="using-the-natural-english-a-hrefhttpsenwikipediaorgwikisubjecte28093verbe28093objectsova-terms"><a class="header" href="#using-the-natural-english-a-hrefhttpsenwikipediaorgwikisubjecte28093verbe28093objectsova-terms">Using the natural English <a href="https://en.wikipedia.org/wiki/Subject%E2%80%93verb%E2%80%93object">SOV</a> terms</a></h3>
+<h3 id="using-the-natural-english-sov-terms"><a class="header" href="#using-the-natural-english-sov-terms">Using the natural English <a href="https://en.wikipedia.org/wiki/Subject%E2%80%93verb%E2%80%93object">SOV</a> terms</a></h3>
 <p><img src="background/../mdbook-plantuml-img/78989bc2f1de18b47d669cbeaefd3ef8c6362d1f.svg" alt="" /></p>
-<h3 id="using-common-a-hrefhttpsenwikipediaorgwikivertex_graph_theorygraph-theorya-terms"><a class="header" href="#using-common-a-hrefhttpsenwikipediaorgwikivertex_graph_theorygraph-theorya-terms">Using common <a href="https://en.wikipedia.org/wiki/Vertex_(graph_theory)">graph theory</a> terms</a></h3>
+<h3 id="using-common-graph-theory-terms"><a class="header" href="#using-common-graph-theory-terms">Using common <a href="https://en.wikipedia.org/wiki/Vertex_(graph_theory)">graph theory</a> terms</a></h3>
 <p><img src="background/../mdbook-plantuml-img/1eeb8b5c48f63e8ec6d078150ebf4dac6f1ee08c.svg" alt="" /></p>
 <h3 id="using-the-document-graph-terms"><a class="header" href="#using-the-document-graph-terms">Using the Document Graph terms</a></h3>
 <p><img src="background/../mdbook-plantuml-img/5b5014a7b9f13f529d6d4d61996a42fc2fe88b59.svg" alt="" /></p>
@@ -213,6 +203,21 @@
 <p>We also use the Document Graph to store data required to operate a double-entry accounting system. This system allows users to generate classical accounting reports such as Balance Sheet and Income Statement from blockchain transactions.</p>
 <p>Accountants must be able to tag transactions with additional data, references, files, etc., and they must also be able to assign a general ledger account to appropriately calculate debits and credits.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="useful-links"><a class="header" href="#useful-links">Useful Links</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="features"><a class="header" href="#features">Features</a></h1>
+<h2 id="end-user-accessibility"><a class="header" href="#end-user-accessibility">End-user Accessibility</a></h2>
+<p>The Document Graph Explorer allows for any user with a blockchain account to create and edit content that they own within the graph, and they may create between any two nodes in the graph.</p>
+<p>This level of accessibility to non-technical users is unprecedented. It allows them to collaboratively create and connect content with all of the benefits of blockchain. This level of capability was previously only accessible to highly technical engineers.</p>
+<h2 id="file-and-ipfs-integration"><a class="header" href="#file-and-ipfs-integration">File and IPFS Integration</a></h2>
+<p>Document Graph has integrated support for storing data or files within IPFS and saving that files’ CID (hash) within the document. </p>
+<h2 id="encryption-support"><a class="header" href="#encryption-support">Encryption Support</a></h2>
+<p>Document Graph Explorer supports encryption of a specific content item’s value. In DGE, the user is prompted to enter a password that is used for symmetric AES encryption. This secret simply encrypts the value and the ciphertext is persisted in the document. </p>
+<p>In a future release, we may integrate with the <a href="https://phala.network/en/">Khala/Phala</a> confidential blockchain. Also, we are evaluating integration with <a href="https://www.pad.tech/">PAD</a> as a trustless way to share the secret in a manner that alerts the owner when the secret is accessed. This is useful for interesting use cases such as one-time decrypt use cases and “in case of emergency” use cases.</p>
+<h2 id="graphql-caching"><a class="header" href="#graphql-caching">GraphQL Caching</a></h2>
+<p>Document Graph supports easy integration with <a href="https://dgraph.io">DGraph</a>, an open source distributed graph engine. The document graph cache listens for new blocks, and upon finalization, updates the DGraph graph to reflect any updates to the on-chain graph. DGraph has excellent tooling and ergonomics for querying, custom types or schemas, data visualizer, full-text search, and much more. </p>
+<h2 id="composable-sdk-experience-cli"><a class="header" href="#composable-sdk-experience-cli">Composable SDK Experience (CLI)</a></h2>
+<p>Document Graph is built to be highly composable and also support an ergonomic developer experience. In addition to the Document Graph Explorer web application, there is a CLI (written in Go) that supports all of the create, read, update, and delete operations directly against the blockchain. </p>
+<h2 id="plugin-architecture-for-custom-renderers-and-editors"><a class="header" href="#plugin-architecture-for-custom-renderers-and-editors">Plugin Architecture for Custom Renderers and Editors</a></h2>
+<p>Developers can include special fields within their document to enable custom viewers or editors. For example, if the field “preferred_renderer” or “preferred_editor” is populated with an endpoint, this endpoint will be used to render or edit the document.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="graph"><a class="header" href="#graph">Graph</a></h1>
 <h3 id="graph-composed-of-nodes-and-edges"><a class="header" href="#graph-composed-of-nodes-and-edges">Graph composed of Nodes and Edges</a></h3>
 <p>A Document Graph is a set of documents that are connected with 0..n labeled, directional edges.</p>
@@ -225,7 +230,7 @@
 <p><img src="specification/../mdbook-plantuml-img/c576167c29c4e23b2771fe8ce2e82305e24c4ba4.svg" alt="" /></p>
 <div style="break-before: page; page-break-before: always;"></div><h2 id="document-data-model"><a class="header" href="#document-data-model">Document Data Model</a></h2>
 <p>PlantUML rendering error:
-PlantUML did not generate an image, did you forget the @startuml, @enduml block (/usr/bin/plantuml -tsvg -nometadata /tmp/.tmpbHBXjn/fae37727be47f5fb411380eb7dc9d371830c3471.puml)?</p>
+PlantUML did not generate an image, did you forget the @startuml, @enduml block (/usr/bin/plantuml -tsvg -nometadata /tmp/.tmps6dUcC/fae37727be47f5fb411380eb7dc9d371830c3471.puml)?</p>
 <p>Each document is comprised of the following:</p>
 <ul>
 <li>Header 
@@ -268,7 +273,7 @@ PlantUML did not generate an image, did you forget the @startuml, @enduml block 
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h2 id="edge-data-model"><a class="header" href="#edge-data-model">Edge Data Model</a></h2>
 <p>PlantUML rendering error:
-PlantUML did not generate an image, did you forget the @startuml, @enduml block (/usr/bin/plantuml -tsvg -nometadata /tmp/.tmpbHBXjn/a3093a1e864af9ed95d385539efdb2b87e2fcb9f.puml)?</p>
+PlantUML did not generate an image, did you forget the @startuml, @enduml block (/usr/bin/plantuml -tsvg -nometadata /tmp/.tmps6dUcC/a3093a1e864af9ed95d385539efdb2b87e2fcb9f.puml)?</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="eosio-implementation"><a class="header" href="#eosio-implementation">EOSIO Implementation</a></h1>
 <p>For the full smart contracts, see the <a href="https://github.com/hashed-io/document-graph">Github repository</a></p>
 <p>EOSIO (c++) implementation of the types of the Document Graph smart contract:</p>
