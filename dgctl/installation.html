@@ -134,76 +134,42 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p><code>daoctl</code> is an open source, command line application for Document Graph organizations written in Go. It is also a secure wallet for managing private keys and submitted transactions.</p>
+                        <p><code>dgctl</code> is an open source, command line application for Document Graph organizations written in Go. It is also a secure wallet for managing private keys and submitted transactions.</p>
 <h4 id="build"><a class="header" href="#build">Build</a></h4>
-<p>Building <code>daoctl</code> requires Go v15 and above.</p>
-<pre><code>git clone https://github.com/hypha-dao/daoctl/
-cd daoctl
+<p>Building <code>dgctl</code> requires Go v15 and above.</p>
+<pre><code>git clone https://github.com/hashed-io/dgctl/
+cd dgctl
 go build
-./daoctl -h
+./dgctl -h
 </code></pre>
 <h4 id="download-binary"><a class="header" href="#download-binary">Download binary</a></h4>
-<p>https://github.com/hypha-dao/daoctl/releases</p>
+<p>https://github.com/hashed-io/dgctl/releases</p>
 <h4 id="run-help"><a class="header" href="#run-help">Run help</a></h4>
-<pre><code>./daoctl --help                                                                                                                                     ST 4   master
-Decentralized Autonomous Organization (DAO) control application for Hypha DAO query and actions.
-Query and manage roles, assignments, periods, payouts, and proposals.
-
-Example use:
-	daoctl get assignments --include-proposals
-	daoctl get treasury
-
-Hypha - Dapps for a New World - visit online @ hypha.earth
-
+<pre><code>./dgctl --help                                                                                             
 Usage:
-  daoctl [command]
+  dgctl [command]
 
 Available Commands:
-  backup      creates a local backup of current DAO data
-  close       close a proposal
+  backup      creates a local backup of current graph
   create      create an object (e.g. proposal) based on the JSON file
-  edit        propose an edit to an object
-  get         get objects from the DAO on-chain smart contract
+  edit        propose an edit to a document
+  get         get objects from the on-chain smart contract
   help        Help about any command
-  propose     propose a role
-  query       Query action history on the DAO for specific users
-  serve       Start the Hypha prometheus metrics server
-  set         set data on the DAO on-chain smart contract
-  treasury    multi-chain token/value redemption module
+  set         set data on the on-chain smart contract
   vault       The vault is a secure key store (wallet). Your key is stored encrypted by the passphrase.
-  vote        vote pass or fail on a ballot
 
 Flags:
   -a, --active               show active objects (default true)
-      --config string        config file (default is ./daoctl.yaml)
+      --config string        config file (default is ./dgctl.yaml)
       --csv                  Output data as CSV to console - not supported on all commands yet
       --debug                Enables verbose debug messages
       --expiration int       Set time before transaction expires, in seconds. Defaults to 30 seconds. (default 30)
-      --failed-proposals     include a table with failed proposals
   -f, --file string          filename
-  -h, --help                 help for daoctl
-  -o, --include-archive      include a table with the archive objects
-      --include-proposals    include a table with proposals in the output
+  -h, --help                 help for dgctl
       --output-file string   Output CSV data to file - not supported on all commands yet (default &quot;output.csv&quot;)
       --vault-file string    Wallet file that contains encrypted key material (default &quot;./eosc-vault.json&quot;)
 
-Use &quot;daoctl [command] --help&quot; for more information about a command.
-</code></pre>
-<h4 id="sample-configurationyaml"><a class="header" href="#sample-configurationyaml">Sample configuration.yaml</a></h4>
-<p>Here's a sample configuration file for the testnet. You can save as a file and use <code>--config</code> then the file name as a parameter.</p>
-<pre><code class="language-yaml">EosioEndpoint: https://test.telos.kitchen
-AssetsAsFloat: true
-DAOContract: dao.hypha
-Treasury:
-  TokenContract: husd.hypha
-  Symbol: HUSD
-  Contract: bank.hypha
-  EthUSDTContract: 0xdac17f958d2ee523a2206206994597c13d831ec7
-  EthUSDTAddress: 0xC20f453a4B4995CA032570f212988F4978B35dDd
-  BtcAddress: 35hfgfaUouzYixTUDV6CFqMiTSZcuNtTf9
-TelosDecideContract: trailservice
-DAOUser: treasurermmm
-HyperionEndpoint: https://testnet.telosusa.io/v2
+Use &quot;dgctl [command] --help&quot; for more information about a command.
 </code></pre>
 
                     </main>

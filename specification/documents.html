@@ -135,8 +135,7 @@
                 <div id="content" class="content">
                     <main>
                         <h2 id="document-data-model"><a class="header" href="#document-data-model">Document Data Model</a></h2>
-<p>PlantUML rendering error:
-PlantUML did not generate an image, did you forget the @startuml, @enduml block (/usr/bin/plantuml -tsvg -nometadata /tmp/.tmpAw2ETD/fae37727be47f5fb411380eb7dc9d371830c3471.puml)?</p>
+<p><img src="doc-data-model.svg" alt="Document Data Model" /></p>
 <p>Each document is comprised of the following:</p>
 <ul>
 <li>Header 
@@ -164,6 +163,11 @@ PlantUML did not generate an image, did you forget the @startuml, @enduml block 
 </li>
 </ul>
 </li>
+</ul>
+<blockquote>
+<p>maybe we delete certificates? a certificate could just be another document?</p>
+</blockquote>
+<ul>
 <li>Certificates [optional]
 <ul>
 <li>Each document has <code>O..n</code> certificates.</li>
@@ -171,12 +175,37 @@ PlantUML did not generate an image, did you forget the @startuml, @enduml block 
 <ul>
 <li>certifier: the 'signer' </li>
 <li>notes: string data provided by signer</li>
-<li>certification_date: time_point    </li>
+<li>certification_date: time_point</li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
+<p>Most documents have adopted a <code>system</code> group with <code>type</code> and <code>node_label</code>. Implementing these content items enables vastly improved usability within the DGE and related tools.</p>
+<p><img src="system-group.svg" alt="System Group" /></p>
+<!-- ```plantuml
+@startmindmap
+* Document
+** system Content Group
+*** node_label
+*** type (`eosio::name`)
+@endmindmap
+``` -->
+<!-- 
+```plantuml
+@startmindmap
+* Document
+** Header
+*** Owner
+*** Created & Updated Dates
+** Content Group 1
+*** Content Item 1
+**** Key (label)
+**** Value
+*** Content Item n
+** Content Group n
+@endmindmap
+``` -->
 
                     </main>
 

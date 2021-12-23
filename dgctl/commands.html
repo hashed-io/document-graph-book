@@ -134,55 +134,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <hr />
-<h2>title: &quot;Commands&quot;
-description: &quot;&quot;
-lead: &quot;&quot;
-date: 2021-02-18T10:43:15-05:00
-lastmod: 2021-02-18T10:43:15-05:00
-draft: false
-images: []
-menu: 
-docs:
-parent: &quot;dgctl&quot;
-weight: 310
-toc: true</h2>
-<p><code>daoctl</code> remains under heavy development. Expect breaking changes.</p>
-<h4 id="commands"><a class="header" href="#commands">Commands</a></h4>
-<h5 id="view-roles"><a class="header" href="#view-roles">View Roles</a></h5>
-<pre><code>./daoctl get roles
-</code></pre>
-<h5 id="include-proposals"><a class="header" href="#include-proposals">Include proposals</a></h5>
-<pre><code>./daoctl get roles --include-proposals
-</code></pre>
-<h5 id="view-assignments"><a class="header" href="#view-assignments">View Assignments</a></h5>
-<pre><code>./daoctl get payouts
-</code></pre>
-<h5 id="view-treasury"><a class="header" href="#view-treasury">View Treasury</a></h5>
-<pre><code>./daoctl get treasury
-</code></pre>
-<h5 id="view-treasury-redemption-requests"><a class="header" href="#view-treasury-redemption-requests">View Treasury Redemption Requests</a></h5>
-<pre><code>./daoctl treasury get requests
-</code></pre>
-<h5 id="view-treasury-payments-fulfilling-requests"><a class="header" href="#view-treasury-payments-fulfilling-requests">View Treasury Payments (fulfilling requests)</a></h5>
-<pre><code>./daoctl treasury get payments
-</code></pre>
-<h5 id="view-details-of-a-ballot"><a class="header" href="#view-details-of-a-ballot">View Details of a Ballot</a></h5>
-<pre><code>./daoctl get ballot d4
-</code></pre>
-<h5 id="serve-prometheus-metrics"><a class="header" href="#serve-prometheus-metrics">Serve prometheus metrics</a></h5>
-<pre><code>./daoctl get ballot d4
-</code></pre>
-<h4 id="treasury-commands"><a class="header" href="#treasury-commands">Treasury Commands</a></h4>
-<p>The treasury requires multisig approvals from treasurers. See below for creating payment and attestation records.</p>
-<p>Submitting a new payment against a Redemption Request </p>
-<pre><code class="language-bash"># in the below command, the redemption_id is 6
-./daoctl --vault-file hyphanewyork.json treasury newpayment 6 &quot;3500.00 HUSD&quot; --network BTC --trxid b475e94c6a86dd18cce0ab7a1dfc9d0f94e20baf6c91317c14ce669da4111e1c --memo &quot;just a memo field for any additional context&quot;
-</code></pre>
-<p>Attesting to an existing payment. Treasurers have the responsibility of reviewing and validating transaction payments. To attest that a posted payment is true and accurate, use the <code>attest</code> command.</p>
-<pre><code class="language-bash"># in the below example, the paymentID is 4 and the requestID is 6
-./daoctl --vault-file hyphanewyork.json treasury attest 4 6 &quot;3500.00 HUSD&quot; 
-</code></pre>
+                        <p>Coming soon</p>
 
                     </main>
 

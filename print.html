@@ -140,21 +140,28 @@
 <h1 id="overview"><a class="header" href="#overview">Overview</a></h1>
 <ol>
 <li>
-<p>Document is a node in the graph. Documents have a:
-a. ID (system assigned &amp; immutable)
-b. Label
-c. Owner (could be owned by a DAO)
-d. Content
-i. Text or Primitive type data (e.g. % interest or 2.50 USD)
-ii. Files, photos, videos, saved into IPFS with the CID saved in the document.
-iii.  Both i and ii above can be optionally encrypted with a password that can be shared through a side channel.</p>
+<p>Document is a node in the graph. Documents have a:</p>
+<ul>
+<li>ID (system assigned &amp; immutable)</li>
+<li>Label</li>
+<li>Owner (could be owned by a DAO)</li>
+<li>Content
+<ul>
+<li>Text or Primitive type data (e.g. % interest or 2.50 USD)</li>
+<li>Files, photos, videos, saved into IPFS with the CID saved in the document.</li>
+<li>Any content can be optionally encrypted with a password that can be shared through a side channel.</li>
+</ul>
+</li>
+</ul>
 </li>
 <li>
-<p>Edges connect nodes. Each edge has:
-a. From Node
-b. To Node
-c. Edge Name (type: <code>eosio::name</code>)
-d. Owner</p>
+<p>Edges connect nodes. Each edge has:</p>
+<ul>
+<li>From Node</li>
+<li>To Node</li>
+<li>Edge Name (type: <code>eosio::name</code>)</li>
+<li>Owner</li>
+</ul>
 </li>
 <li>
 <p>Only the owner can edit a document or an edge (e.g. only <code>dao.hypha</code> can edit a document created by the DHO)</p>
@@ -163,7 +170,7 @@ d. Owner</p>
 <p>Anyone can extend an existing graph with documents that they are the <code>owner</code> of. This allows for multitenant control over different data in the same graph. </p>
 </li>
 <li>
-<p>Document Graph includes a web-based Explorer and Editor that allows non-technical users to directly <code>create</code>, <code>edit</code>, <code>erase</code>, and <code>extend</code>. Screenshot shows <code>edit</code> screen where user has encrypted the <code>reference</code> field and saved the <code>secret key</code> to IPFS. </p>
+<p>Document Graph includes a web-based Explorer and Editor that allows non-technical users to directly <code>create</code>, <code>edit</code>, <code>erase</code>, and <code>extend</code>. Screenshot shows <code>edit</code> screen where user has encrypted the <code>reference</code> field and saved the <code>secret key</code> to IPFS.  <strong>(not recommended, this was just to illustrate the functionality)</strong></p>
 </li>
 </ol>
 <p><img src="background/dge1.png" alt="Document Graph Explorer" /></p>
@@ -267,8 +274,7 @@ d. Owner</p>
 </ul>
 <p><img src="specification/../mdbook-plantuml-img/c576167c29c4e23b2771fe8ce2e82305e24c4ba4.svg" alt="" /></p>
 <div style="break-before: page; page-break-before: always;"></div><h2 id="document-data-model"><a class="header" href="#document-data-model">Document Data Model</a></h2>
-<p>PlantUML rendering error:
-PlantUML did not generate an image, did you forget the @startuml, @enduml block (/usr/bin/plantuml -tsvg -nometadata /tmp/.tmpAw2ETD/fae37727be47f5fb411380eb7dc9d371830c3471.puml)?</p>
+<p><img src="specification/doc-data-model.svg" alt="Document Data Model" /></p>
 <p>Each document is comprised of the following:</p>
 <ul>
 <li>Header 
@@ -296,6 +302,11 @@ PlantUML did not generate an image, did you forget the @startuml, @enduml block 
 </li>
 </ul>
 </li>
+</ul>
+<blockquote>
+<p>maybe we delete certificates? a certificate could just be another document?</p>
+</blockquote>
+<ul>
 <li>Certificates [optional]
 <ul>
 <li>Each document has <code>O..n</code> certificates.</li>
@@ -303,15 +314,46 @@ PlantUML did not generate an image, did you forget the @startuml, @enduml block 
 <ul>
 <li>certifier: the 'signer' </li>
 <li>notes: string data provided by signer</li>
-<li>certification_date: time_point    </li>
+<li>certification_date: time_point</li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
+<p>Most documents have adopted a <code>system</code> group with <code>type</code> and <code>node_label</code>. Implementing these content items enables vastly improved usability within the DGE and related tools.</p>
+<p><img src="specification/system-group.svg" alt="System Group" /></p>
+<!-- ```plantuml
+@startmindmap
+* Document
+** system Content Group
+*** node_label
+*** type (`eosio::name`)
+@endmindmap
+``` -->
+<!-- 
+```plantuml
+@startmindmap
+* Document
+** Header
+*** Owner
+*** Created & Updated Dates
+** Content Group 1
+*** Content Item 1
+**** Key (label)
+**** Value
+*** Content Item n
+** Content Group n
+@endmindmap
+``` -->
 <div style="break-before: page; page-break-before: always;"></div><h2 id="edge-data-model"><a class="header" href="#edge-data-model">Edge Data Model</a></h2>
-<p>PlantUML rendering error:
-PlantUML did not generate an image, did you forget the @startuml, @enduml block (/usr/bin/plantuml -tsvg -nometadata /tmp/.tmpAw2ETD/a3093a1e864af9ed95d385539efdb2b87e2fcb9f.puml)?</p>
+<p><img src="specification/edge-data-model.svg" alt="Edge Data Model" /></p>
+<pre><code>* Edge
+** Creator
+** From Document
+** Edge Label
+** To Document
+** Created Date
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="eosio-implementation"><a class="header" href="#eosio-implementation">EOSIO Implementation</a></h1>
 <p>For the full smart contracts, see the <a href="https://github.com/hashed-io/document-graph">Github repository</a></p>
 <p>EOSIO (c++) implementation of the types of the Document Graph smart contract:</p>
@@ -432,126 +474,44 @@ PlantUML did not generate an image, did you forget the @startuml, @enduml block 
 }
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h3 id="substrate-implementation-coming-soon"><a class="header" href="#substrate-implementation-coming-soon">Substrate Implementation (coming soon)</a></h3>
-<div style="break-before: page; page-break-before: always;"></div><p><code>daoctl</code> is an open source, command line application for Document Graph organizations written in Go. It is also a secure wallet for managing private keys and submitted transactions.</p>
+<div style="break-before: page; page-break-before: always;"></div><p><code>dgctl</code> is an open source, command line application for Document Graph organizations written in Go. It is also a secure wallet for managing private keys and submitted transactions.</p>
 <h4 id="build"><a class="header" href="#build">Build</a></h4>
-<p>Building <code>daoctl</code> requires Go v15 and above.</p>
-<pre><code>git clone https://github.com/hypha-dao/daoctl/
-cd daoctl
+<p>Building <code>dgctl</code> requires Go v15 and above.</p>
+<pre><code>git clone https://github.com/hashed-io/dgctl/
+cd dgctl
 go build
-./daoctl -h
+./dgctl -h
 </code></pre>
 <h4 id="download-binary"><a class="header" href="#download-binary">Download binary</a></h4>
-<p>https://github.com/hypha-dao/daoctl/releases</p>
+<p>https://github.com/hashed-io/dgctl/releases</p>
 <h4 id="run-help"><a class="header" href="#run-help">Run help</a></h4>
-<pre><code>./daoctl --help                                                                                                                                     ST 4   master
-Decentralized Autonomous Organization (DAO) control application for Hypha DAO query and actions.
-Query and manage roles, assignments, periods, payouts, and proposals.
-
-Example use:
-	daoctl get assignments --include-proposals
-	daoctl get treasury
-
-Hypha - Dapps for a New World - visit online @ hypha.earth
-
+<pre><code>./dgctl --help                                                                                             
 Usage:
-  daoctl [command]
+  dgctl [command]
 
 Available Commands:
-  backup      creates a local backup of current DAO data
-  close       close a proposal
+  backup      creates a local backup of current graph
   create      create an object (e.g. proposal) based on the JSON file
-  edit        propose an edit to an object
-  get         get objects from the DAO on-chain smart contract
+  edit        propose an edit to a document
+  get         get objects from the on-chain smart contract
   help        Help about any command
-  propose     propose a role
-  query       Query action history on the DAO for specific users
-  serve       Start the Hypha prometheus metrics server
-  set         set data on the DAO on-chain smart contract
-  treasury    multi-chain token/value redemption module
+  set         set data on the on-chain smart contract
   vault       The vault is a secure key store (wallet). Your key is stored encrypted by the passphrase.
-  vote        vote pass or fail on a ballot
 
 Flags:
   -a, --active               show active objects (default true)
-      --config string        config file (default is ./daoctl.yaml)
+      --config string        config file (default is ./dgctl.yaml)
       --csv                  Output data as CSV to console - not supported on all commands yet
       --debug                Enables verbose debug messages
       --expiration int       Set time before transaction expires, in seconds. Defaults to 30 seconds. (default 30)
-      --failed-proposals     include a table with failed proposals
   -f, --file string          filename
-  -h, --help                 help for daoctl
-  -o, --include-archive      include a table with the archive objects
-      --include-proposals    include a table with proposals in the output
+  -h, --help                 help for dgctl
       --output-file string   Output CSV data to file - not supported on all commands yet (default &quot;output.csv&quot;)
       --vault-file string    Wallet file that contains encrypted key material (default &quot;./eosc-vault.json&quot;)
 
-Use &quot;daoctl [command] --help&quot; for more information about a command.
+Use &quot;dgctl [command] --help&quot; for more information about a command.
 </code></pre>
-<h4 id="sample-configurationyaml"><a class="header" href="#sample-configurationyaml">Sample configuration.yaml</a></h4>
-<p>Here's a sample configuration file for the testnet. You can save as a file and use <code>--config</code> then the file name as a parameter.</p>
-<pre><code class="language-yaml">EosioEndpoint: https://test.telos.kitchen
-AssetsAsFloat: true
-DAOContract: dao.hypha
-Treasury:
-  TokenContract: husd.hypha
-  Symbol: HUSD
-  Contract: bank.hypha
-  EthUSDTContract: 0xdac17f958d2ee523a2206206994597c13d831ec7
-  EthUSDTAddress: 0xC20f453a4B4995CA032570f212988F4978B35dDd
-  BtcAddress: 35hfgfaUouzYixTUDV6CFqMiTSZcuNtTf9
-TelosDecideContract: trailservice
-DAOUser: treasurermmm
-HyperionEndpoint: https://testnet.telosusa.io/v2
-</code></pre>
-<div style="break-before: page; page-break-before: always;"></div><hr />
-<h2>title: &quot;Commands&quot;
-description: &quot;&quot;
-lead: &quot;&quot;
-date: 2021-02-18T10:43:15-05:00
-lastmod: 2021-02-18T10:43:15-05:00
-draft: false
-images: []
-menu: 
-docs:
-parent: &quot;dgctl&quot;
-weight: 310
-toc: true</h2>
-<p><code>daoctl</code> remains under heavy development. Expect breaking changes.</p>
-<h4 id="commands"><a class="header" href="#commands">Commands</a></h4>
-<h5 id="view-roles"><a class="header" href="#view-roles">View Roles</a></h5>
-<pre><code>./daoctl get roles
-</code></pre>
-<h5 id="include-proposals"><a class="header" href="#include-proposals">Include proposals</a></h5>
-<pre><code>./daoctl get roles --include-proposals
-</code></pre>
-<h5 id="view-assignments"><a class="header" href="#view-assignments">View Assignments</a></h5>
-<pre><code>./daoctl get payouts
-</code></pre>
-<h5 id="view-treasury"><a class="header" href="#view-treasury">View Treasury</a></h5>
-<pre><code>./daoctl get treasury
-</code></pre>
-<h5 id="view-treasury-redemption-requests"><a class="header" href="#view-treasury-redemption-requests">View Treasury Redemption Requests</a></h5>
-<pre><code>./daoctl treasury get requests
-</code></pre>
-<h5 id="view-treasury-payments-fulfilling-requests"><a class="header" href="#view-treasury-payments-fulfilling-requests">View Treasury Payments (fulfilling requests)</a></h5>
-<pre><code>./daoctl treasury get payments
-</code></pre>
-<h5 id="view-details-of-a-ballot"><a class="header" href="#view-details-of-a-ballot">View Details of a Ballot</a></h5>
-<pre><code>./daoctl get ballot d4
-</code></pre>
-<h5 id="serve-prometheus-metrics"><a class="header" href="#serve-prometheus-metrics">Serve prometheus metrics</a></h5>
-<pre><code>./daoctl get ballot d4
-</code></pre>
-<h4 id="treasury-commands"><a class="header" href="#treasury-commands">Treasury Commands</a></h4>
-<p>The treasury requires multisig approvals from treasurers. See below for creating payment and attestation records.</p>
-<p>Submitting a new payment against a Redemption Request </p>
-<pre><code class="language-bash"># in the below command, the redemption_id is 6
-./daoctl --vault-file hyphanewyork.json treasury newpayment 6 &quot;3500.00 HUSD&quot; --network BTC --trxid b475e94c6a86dd18cce0ab7a1dfc9d0f94e20baf6c91317c14ce669da4111e1c --memo &quot;just a memo field for any additional context&quot;
-</code></pre>
-<p>Attesting to an existing payment. Treasurers have the responsibility of reviewing and validating transaction payments. To attest that a posted payment is true and accurate, use the <code>attest</code> command.</p>
-<pre><code class="language-bash"># in the below example, the paymentID is 4 and the requestID is 6
-./daoctl --vault-file hyphanewyork.json treasury attest 4 6 &quot;3500.00 HUSD&quot; 
-</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><p>Coming soon</p>
 
                     </main>
 
