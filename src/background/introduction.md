@@ -5,25 +5,25 @@ Document Graph is a flexible persistence and modeling framework for blockchain a
 # Overview
 
 1. Document is a node in the graph. Documents have a:
-    a. ID (system assigned & immutable)
-    b. Label
-    c. Owner (could be owned by a DAO)
-    d. Content
-        i. Text or Primitive type data (e.g. % interest or 2.50 USD)
-        ii. Files, photos, videos, saved into IPFS with the CID saved in the document.
-        iii.  Both i and ii above can be optionally encrypted with a password that can be shared through a side channel.
+    - ID (system assigned & immutable)
+    - Label
+    - Owner (could be owned by a DAO)
+    - Content
+        - Text or Primitive type data (e.g. % interest or 2.50 USD)
+        - Files, photos, videos, saved into IPFS with the CID saved in the document.
+        - Any content can be optionally encrypted with a password that can be shared through a side channel.
 
 2. Edges connect nodes. Each edge has:
-    a. From Node
-    b. To Node
-    c. Edge Name (type: `eosio::name`)
-    d. Owner
+    - From Node
+    - To Node
+    - Edge Name (type: `eosio::name`)
+    - Owner
 
 3. Only the owner can edit a document or an edge (e.g. only `dao.hypha` can edit a document created by the DHO)
 
 4. Anyone can extend an existing graph with documents that they are the `owner` of. This allows for multitenant control over different data in the same graph. 
 
-5. Document Graph includes a web-based Explorer and Editor that allows non-technical users to directly `create`, `edit`, `erase`, and `extend`. Screenshot shows `edit` screen where user has encrypted the `reference` field and saved the `secret key` to IPFS. 
+5. Document Graph includes a web-based Explorer and Editor that allows non-technical users to directly `create`, `edit`, `erase`, and `extend`. Screenshot shows `edit` screen where user has encrypted the `reference` field and saved the `secret key` to IPFS.  **(not recommended, this was just to illustrate the functionality)**
 
 ![Document Graph Explorer](dge1.png)
 

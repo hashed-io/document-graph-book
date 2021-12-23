@@ -1,21 +1,6 @@
 ## Document Data Model
 
-```plantuml
-@startmindmap
-* Document
-** Header
-*** Hash
-*** Owner
-*** Type
-*** Created & Updated Dates
-** Content Group 1
-*** Content Item 1
-**** Key (label)
-**** Value
-*** Content Item n
-** Content Group n
-@endmindmap
-```
+![Document Data Model](doc-data-model.svg)
 
 Each document is comprised of the following:
 
@@ -35,9 +20,40 @@ Each document is comprised of the following:
         - data of all supported types,
         - short clauses of annotated text,
         - longer form sequenced data, e.g. chapters. 
+
+> maybe we delete certificates? a certificate could just be another document?        
 - Certificates [optional]
     - Each document has ```O..n``` certificates.
     - Certificate 
         - certifier: the 'signer' 
         - notes: string data provided by signer
         - certification_date: time_point    
+
+Most documents have adopted a `system` group with `type` and `node_label`. Implementing these content items enables vastly improved usability within the DGE and related tools.
+
+![System Group](system-group.svg)
+
+<!-- ```plantuml
+@startmindmap
+* Document
+** system Content Group
+*** node_label
+*** type (`eosio::name`)
+@endmindmap
+``` -->
+
+<!-- 
+```plantuml
+@startmindmap
+* Document
+** Header
+*** Owner
+*** Created & Updated Dates
+** Content Group 1
+*** Content Item 1
+**** Key (label)
+**** Value
+*** Content Item n
+** Content Group n
+@endmindmap
+``` -->
