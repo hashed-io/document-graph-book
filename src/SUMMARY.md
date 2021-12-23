@@ -17,6 +17,12 @@
 - [EOSIO](specification/eosio.md)
 - [Substrate](specification/substrate.md)
 
+# Explorer
+- [Getting Started](explorer/getting-started.md)
+- [Tutorials](explorer/tutorials.md)
+
 # ```dgctl``` CLI
 - [Installation](dgctl/installation.md)
 - [Commands](dgctl/commands.md)
+
+- [Contributing](contributing.md)
