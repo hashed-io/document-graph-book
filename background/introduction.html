@@ -136,8 +136,46 @@
                     <main>
                         <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
 <p>Document Graph is a flexible persistence and modeling framework for blockchain applications.</p>
-<h2 id="smart-contracts"><a class="header" href="#smart-contracts">Smart Contracts</a></h2>
-<h2 id=""><a class="header" href="#"></a></h2>
+<h1 id="overview"><a class="header" href="#overview">Overview</a></h1>
+<ol>
+<li>
+<p>Document is a node in the graph. Documents have a:
+a. ID (system assigned &amp; immutable)
+b. Label
+c. Owner (could be owned by a DAO)
+d. Content
+i. Text or Primitive type data (e.g. % interest or 2.50 USD)
+ii. Files, photos, videos, saved into IPFS with the CID saved in the document.
+iii.  Both i and ii above can be optionally encrypted with a password that can be shared through a side channel.</p>
+</li>
+<li>
+<p>Edges connect nodes. Each edge has:
+a. From Node
+b. To Node
+c. Edge Name (type: <code>eosio::name</code>)
+d. Owner</p>
+</li>
+<li>
+<p>Only the owner can edit a document or an edge (e.g. only <code>dao.hypha</code> can edit a document created by the DHO)</p>
+</li>
+<li>
+<p>Anyone can extend an existing graph with documents that they are the <code>owner</code> of. This allows for multitenant control over different data in the same graph. </p>
+</li>
+<li>
+<p>Document Graph includes a web-based Explorer and Editor that allows non-technical users to directly <code>create</code>, <code>edit</code>, <code>erase</code>, and <code>extend</code>. Screenshot shows <code>edit</code> screen where user has encrypted the <code>reference</code> field and saved the <code>secret key</code> to IPFS. </p>
+</li>
+</ol>
+<p><img src="dge1.png" alt="Document Graph Explorer" /></p>
+<ol start="6">
+<li>Actions can be deployed anywhere on the layer 1 to interact with the graph. The code in those contracts will modify the graph contents, but will require the permission of the <code>owner</code> that created it. The default contract has all of the basic actions (e.g. trigger a proposal if the right DAO/DHO/owner for edits). But it is compatible with any contracts on the layer 1, so it allows for trustless deployment of business logic that scales to the bounds of the layer 1. </li>
+</ol>
+<h2 id="example-graph"><a class="header" href="#example-graph">Example Graph</a></h2>
+<ul>
+<li>member is a member of two organizations</li>
+<li>badges are owned by the Badge Librarian</li>
+<li>members are assigned badges</li>
+<li>member has been paid multiple times</li>
+</ul>
 <p><img src="graph-example.png" alt="Example Graph" /></p>
 
                     </main>
