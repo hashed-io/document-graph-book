@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Features - Document Graph</title>
+        <title>Tutorials - Document Graph</title>
         <!-- Custom HTML head -->
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
@@ -75,7 +75,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../background/introduction.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">Background</li><li class="chapter-item expanded "><a href="../background/triples.html"><strong aria-hidden="true">1.</strong> Semantic Triples</a></li><li class="chapter-item expanded "><a href="../background/migrations.html"><strong aria-hidden="true">2.</strong> Data Migrations</a></li><li class="chapter-item expanded "><a href="../background/use-cases.html"><strong aria-hidden="true">3.</strong> Use Cases</a></li><li class="chapter-item expanded "><a href="../background/links.html"><strong aria-hidden="true">4.</strong> Links</a></li><li class="chapter-item expanded affix "><li class="part-title">Specification</li><li class="chapter-item expanded "><a href="../specification/features.html" class="active"><strong aria-hidden="true">5.</strong> Features</a></li><li class="chapter-item expanded "><a href="../specification/graph.html"><strong aria-hidden="true">6.</strong> Graph</a></li><li class="chapter-item expanded "><a href="../specification/documents.html"><strong aria-hidden="true">7.</strong> Documents</a></li><li class="chapter-item expanded "><a href="../specification/edges.html"><strong aria-hidden="true">8.</strong> Edges</a></li><li class="chapter-item expanded affix "><li class="part-title">Implementations</li><li class="chapter-item expanded "><a href="../specification/eosio.html"><strong aria-hidden="true">9.</strong> EOSIO</a></li><li class="chapter-item expanded "><a href="../specification/substrate.html"><strong aria-hidden="true">10.</strong> Substrate</a></li><li class="chapter-item expanded affix "><li class="part-title">Explorer</li><li class="chapter-item expanded "><a href="../explorer/getting-started.html"><strong aria-hidden="true">11.</strong> Getting Started</a></li><li class="chapter-item expanded "><a href="../explorer/tutorials.html"><strong aria-hidden="true">12.</strong> Tutorials</a></li><li class="chapter-item expanded affix "><li class="part-title">dgctl CLI</li><li class="chapter-item expanded "><a href="../dgctl/installation.html"><strong aria-hidden="true">13.</strong> Installation</a></li><li class="chapter-item expanded "><a href="../dgctl/commands.html"><strong aria-hidden="true">14.</strong> Commands</a></li><li class="chapter-item expanded "><a href="../contributing.html"><strong aria-hidden="true">15.</strong> Contributing</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../background/introduction.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">Background</li><li class="chapter-item expanded "><a href="../background/triples.html"><strong aria-hidden="true">1.</strong> Semantic Triples</a></li><li class="chapter-item expanded "><a href="../background/migrations.html"><strong aria-hidden="true">2.</strong> Data Migrations</a></li><li class="chapter-item expanded "><a href="../background/use-cases.html"><strong aria-hidden="true">3.</strong> Use Cases</a></li><li class="chapter-item expanded "><a href="../background/links.html"><strong aria-hidden="true">4.</strong> Links</a></li><li class="chapter-item expanded affix "><li class="part-title">Specification</li><li class="chapter-item expanded "><a href="../specification/features.html"><strong aria-hidden="true">5.</strong> Features</a></li><li class="chapter-item expanded "><a href="../specification/graph.html"><strong aria-hidden="true">6.</strong> Graph</a></li><li class="chapter-item expanded "><a href="../specification/documents.html"><strong aria-hidden="true">7.</strong> Documents</a></li><li class="chapter-item expanded "><a href="../specification/edges.html"><strong aria-hidden="true">8.</strong> Edges</a></li><li class="chapter-item expanded affix "><li class="part-title">Implementations</li><li class="chapter-item expanded "><a href="../specification/eosio.html"><strong aria-hidden="true">9.</strong> EOSIO</a></li><li class="chapter-item expanded "><a href="../specification/substrate.html"><strong aria-hidden="true">10.</strong> Substrate</a></li><li class="chapter-item expanded affix "><li class="part-title">Explorer</li><li class="chapter-item expanded "><a href="../explorer/getting-started.html"><strong aria-hidden="true">11.</strong> Getting Started</a></li><li class="chapter-item expanded "><a href="../explorer/tutorials.html" class="active"><strong aria-hidden="true">12.</strong> Tutorials</a></li><li class="chapter-item expanded affix "><li class="part-title">dgctl CLI</li><li class="chapter-item expanded "><a href="../dgctl/installation.html"><strong aria-hidden="true">13.</strong> Installation</a></li><li class="chapter-item expanded "><a href="../dgctl/commands.html"><strong aria-hidden="true">14.</strong> Commands</a></li><li class="chapter-item expanded "><a href="../contributing.html"><strong aria-hidden="true">15.</strong> Contributing</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -134,30 +134,16 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="features"><a class="header" href="#features">Features</a></h1>
-<h2 id="end-user-accessibility"><a class="header" href="#end-user-accessibility">End-user Accessibility</a></h2>
-<p>The Document Graph Explorer allows for any user with a blockchain account to create and edit content that they own within the graph, and they may create between any two nodes in the graph.</p>
-<p>This level of accessibility to non-technical users is unprecedented. It allows them to collaboratively create and connect content with all of the benefits of blockchain. This level of capability was previously only accessible to highly technical engineers.</p>
-<h2 id="file-and-ipfs-integration"><a class="header" href="#file-and-ipfs-integration">File and IPFS Integration</a></h2>
-<p>Document Graph has integrated support for storing data or files within IPFS and saving that files’ CID (hash) within the document. </p>
-<h2 id="encryption-support"><a class="header" href="#encryption-support">Encryption Support</a></h2>
-<p>Document Graph Explorer supports encryption of a specific content item’s value. In DGE, the user is prompted to enter a password that is used for symmetric AES encryption. This secret simply encrypts the value and the ciphertext is persisted in the document. </p>
-<p>In a future release, we may integrate with the <a href="https://phala.network/en/">Khala/Phala</a> confidential blockchain. Also, we are evaluating integration with <a href="https://www.pad.tech/">PAD</a> as a trustless way to share the secret in a manner that alerts the owner when the secret is accessed. This is useful for interesting use cases such as one-time decrypt use cases and “in case of emergency” use cases.</p>
-<h2 id="graphql-caching"><a class="header" href="#graphql-caching">GraphQL Caching</a></h2>
-<p>Document Graph supports easy integration with <a href="https://dgraph.io">DGraph</a>, an open source distributed graph engine. The document graph cache listens for new blocks, and upon finalization, updates the DGraph graph to reflect any updates to the on-chain graph. DGraph has excellent tooling and ergonomics for querying, custom types or schemas, data visualizer, full-text search, and much more. </p>
-<h2 id="composable-sdk-experience-cli"><a class="header" href="#composable-sdk-experience-cli">Composable SDK Experience (CLI)</a></h2>
-<p>Document Graph is built to be highly composable and also support an ergonomic developer experience. In addition to the Document Graph Explorer web application, there is a CLI (written in Go) that supports all of the create, read, update, and delete operations directly against the blockchain. </p>
-<h2 id="plugin-architecture-for-custom-renderers-and-editors"><a class="header" href="#plugin-architecture-for-custom-renderers-and-editors">Plugin Architecture for Custom Renderers and Editors</a></h2>
-<p>Developers can include special fields within their document to enable custom viewers or editors. For example, if the field “preferred_renderer” or “preferred_editor” is populated with an endpoint, this endpoint will be used to render or edit the document.</p>
+                        <h1 id="tutorials"><a class="header" href="#tutorials">Tutorials</a></h1>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../background/links.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../explorer/getting-started.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
-                            <a rel="next" href="../specification/graph.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../dgctl/installation.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         <div style="clear: both"></div>
@@ -166,10 +152,10 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../background/links.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../explorer/getting-started.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
-                    <a rel="next" href="../specification/graph.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="../dgctl/installation.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
