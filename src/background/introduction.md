@@ -29,6 +29,7 @@ Document Graph is a flexible persistence and modeling framework for blockchain a
 
 6. Actions can be deployed anywhere on the layer 1 to interact with the graph. The code in those contracts will modify the graph contents, but will require the permission of the `owner` that created it. The default contract has all of the basic actions (e.g. trigger a proposal if the right DAO/DHO/owner for edits). But it is compatible with any contracts on the layer 1, so it allows for trustless deployment of business logic that scales to the bounds of the layer 1. 
 
+7. All data in the graph is accessible via GraphQL endpoints, which can be used to integrate any client or stitched to other graph data sources.
 
 ## Example Graph
 - member is a member of two organizations
