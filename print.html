@@ -167,11 +167,12 @@
 <p>Only the owner can edit a document or an edge (e.g. only <code>dao.hypha</code> can edit a document created by the DHO)</p>
 </li>
 <li>
-<p>Anyone can extend an existing graph with documents that they are the <code>owner</code> of. This allows for multitenant control over different data in the same graph. </p>
+<p>Anyone can extend an existing graph with documents that they are the <code>owner</code> of. This allows for multitenant control over different data in the same graph.</p>
 </li>
-<li>
-<p>Document Graph includes a web-based Explorer and Editor that allows non-technical users to directly <code>create</code>, <code>edit</code>, <code>erase</code>, and <code>extend</code>. Screenshot shows <code>edit</code> screen where user has encrypted the <code>reference</code> field and saved the <code>secret key</code> to IPFS.  <strong>(not recommended, this was just to illustrate the functionality)</strong></p>
-</li>
+</ol>
+<p><img src="background/dge2.png" alt="Extend example" /></p>
+<ol start="5">
+<li>Document Graph includes a web-based Explorer and Editor that allows non-technical users to directly <code>create</code>, <code>edit</code>, <code>erase</code>, and <code>extend</code>. Screenshot shows <code>edit</code> screen where user has encrypted the <code>reference</code> field and saved the <code>secret key</code> to IPFS.  <strong>(not recommended, this was just to illustrate the functionality)</strong></li>
 </ol>
 <p><img src="background/dge1.png" alt="Document Graph Explorer" /></p>
 <ol start="6">
@@ -181,7 +182,11 @@
 <li>
 <p>All data in the graph is accessible via GraphQL endpoints, which can be used to integrate any client or stitched to other graph data sources.</p>
 </li>
+<li>
+<p>The documents can be certified by anyone, this allows to ensure the content of the document</p>
+</li>
 </ol>
+<p><img src="background/certificate.png" alt="Certificate example" /></p>
 <h2 id="example-graph"><a class="header" href="#example-graph">Example Graph</a></h2>
 <ul>
 <li>member is a member of two organizations</li>
@@ -258,7 +263,7 @@
 <p>The Document Graph Explorer allows for any user with a blockchain account to create and edit content that they own within the graph, and they may create between any two nodes in the graph.</p>
 <p>This level of accessibility to non-technical users is unprecedented. It allows them to collaboratively create and connect content with all of the benefits of blockchain. This level of capability was previously only accessible to highly technical engineers.</p>
 <h2 id="file-and-ipfs-integration"><a class="header" href="#file-and-ipfs-integration">File and IPFS Integration</a></h2>
-<p>Document Graph has integrated support for storing data or files within IPFS and saving that files’ CID (hash) within the document. </p>
+<p>Document Graph has integrated support for storing data or files within <a href="https://ipfs.io/">IPFS</a> and saving that files’ CID (hash) within the document. </p>
 <h2 id="encryption-support"><a class="header" href="#encryption-support">Encryption Support</a></h2>
 <p>Document Graph Explorer supports encryption of a specific content item’s value. In DGE, the user is prompted to enter a password that is used for symmetric AES encryption. This secret simply encrypts the value and the ciphertext is persisted in the document. </p>
 <p>In a future release, we may integrate with the <a href="https://phala.network/en/">Khala/Phala</a> confidential blockchain. Also, we are evaluating integration with <a href="https://www.pad.tech/">PAD</a> as a trustless way to share the secret in a manner that alerts the owner when the secret is accessed. This is useful for interesting use cases such as one-time decrypt use cases and “in case of emergency” use cases.</p>
@@ -268,6 +273,8 @@
 <p>Document Graph is built to be highly composable and also support an ergonomic developer experience. In addition to the Document Graph Explorer web application, there is a CLI (written in Go) that supports all of the create, read, update, and delete operations directly against the blockchain. </p>
 <h2 id="plugin-architecture-for-custom-renderers-and-editors"><a class="header" href="#plugin-architecture-for-custom-renderers-and-editors">Plugin Architecture for Custom Renderers and Editors</a></h2>
 <p>Developers can include special fields within their document to enable custom viewers or editors. For example, if the field “preferred_renderer” or “preferred_editor” is populated with an endpoint, this endpoint will be used to render or edit the document.</p>
+<h2 id="elastic-search"><a class="header" href="#elastic-search">Elastic Search</a></h2>
+<p>Document Graph Explorer has integrated support for using a search engine to find documents without navigating the graph.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="graph"><a class="header" href="#graph">Graph</a></h1>
 <h3 id="graph-composed-of-nodes-and-edges"><a class="header" href="#graph-composed-of-nodes-and-edges">Graph composed of Nodes and Edges</a></h3>
 <p>A Document Graph is a set of documents that are connected with 0..n labeled, directional edges.</p>
@@ -480,6 +487,34 @@
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h3 id="substrate-implementation-coming-soon"><a class="header" href="#substrate-implementation-coming-soon">Substrate Implementation (coming soon)</a></h3>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="getting-started"><a class="header" href="#getting-started">Getting Started</a></h1>
+<blockquote>
+<h2 id="prerequisites"><a class="header" href="#prerequisites">Prerequisites</a></h2>
+<p><a href="https://dge.hashed.systems/explore?document_id=0&amp;endpoint=https%3A%2F%2Fhashed.systems%2Falpha-dg-mainnet%2Fgraphql">Readme</a></p>
+<ul>
+<li>A Telos account</li>
+<li><a href="https://greymass.com/en/anchor/">Anchor</a>  wallet installed</li>
+</ul>
+</blockquote>
+<h2 id="features-1"><a class="header" href="#features-1">Features</a></h2>
+<ul>
+<li>Read document </li>
+<li>Create document</li>
+<li>Extend document</li>
+<li>Delete document</li>
+<li>Certify document</li>
+<li>Navigation through URL</li>
+<li>Custom GraphQL endpoints</li>
+<li>Elastic Search Support</li>
+<li>Save content in IPFS</li>
+<li>Encrypt data</li>
+</ul>
+<h2 id="how-to-create-a-document"><a class="header" href="#how-to-create-a-document">How to create a document</a></h2>
+<p>The Document Graph Explorer allows the creation of new documents for any user. For that, you need to click on the button New document</p>
+<p><img src="explorer/./images/newDocument.png" alt="New document example" /></p>
+<p>Then the only thing that you need to do is fill out the form and click on the Save button. The image below show the simplest document that you can create, only need a name and node label.</p>
+<p><img src="explorer/./images/createForm.png" alt="Create form example" /></p>
+<p>After the save document, the data will be updated after the finalized block and one time that the other tool catches the changes into the blockchain you will see your first document.</p>
+<p><img src="explorer/./images/creatingSuccess.png" alt="Success example" /></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="tutorials"><a class="header" href="#tutorials">Tutorials</a></h1>
 <h3 id="step-by-step-walkthroughs"><a class="header" href="#step-by-step-walkthroughs">Step by step walkthroughs</a></h3>
 <pre><code>- How to create a document

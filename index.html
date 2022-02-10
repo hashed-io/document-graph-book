@@ -166,11 +166,12 @@
 <p>Only the owner can edit a document or an edge (e.g. only <code>dao.hypha</code> can edit a document created by the DHO)</p>
 </li>
 <li>
-<p>Anyone can extend an existing graph with documents that they are the <code>owner</code> of. This allows for multitenant control over different data in the same graph. </p>
+<p>Anyone can extend an existing graph with documents that they are the <code>owner</code> of. This allows for multitenant control over different data in the same graph.</p>
 </li>
-<li>
-<p>Document Graph includes a web-based Explorer and Editor that allows non-technical users to directly <code>create</code>, <code>edit</code>, <code>erase</code>, and <code>extend</code>. Screenshot shows <code>edit</code> screen where user has encrypted the <code>reference</code> field and saved the <code>secret key</code> to IPFS.  <strong>(not recommended, this was just to illustrate the functionality)</strong></p>
-</li>
+</ol>
+<p><img src="dge2.png" alt="Extend example" /></p>
+<ol start="5">
+<li>Document Graph includes a web-based Explorer and Editor that allows non-technical users to directly <code>create</code>, <code>edit</code>, <code>erase</code>, and <code>extend</code>. Screenshot shows <code>edit</code> screen where user has encrypted the <code>reference</code> field and saved the <code>secret key</code> to IPFS.  <strong>(not recommended, this was just to illustrate the functionality)</strong></li>
 </ol>
 <p><img src="dge1.png" alt="Document Graph Explorer" /></p>
 <ol start="6">
@@ -180,7 +181,11 @@
 <li>
 <p>All data in the graph is accessible via GraphQL endpoints, which can be used to integrate any client or stitched to other graph data sources.</p>
 </li>
+<li>
+<p>The documents can be certified by anyone, this allows to ensure the content of the document</p>
+</li>
 </ol>
+<p><img src="certificate.png" alt="Certificate example" /></p>
 <h2 id="example-graph"><a class="header" href="#example-graph">Example Graph</a></h2>
 <ul>
 <li>member is a member of two organizations</li>
