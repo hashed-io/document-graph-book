@@ -7,7 +7,7 @@ The Document Graph Explorer allows for any user with a blockchain account to cre
 This level of accessibility to non-technical users is unprecedented. It allows them to collaboratively create and connect content with all of the benefits of blockchain. This level of capability was previously only accessible to highly technical engineers.
 
 ## File and IPFS Integration
-Document Graph has integrated support for storing data or files within IPFS and saving that files’ CID (hash) within the document. 
+Document Graph has integrated support for storing data or files within [IPFS](https://ipfs.io/) and saving that files’ CID (hash) within the document. 
 
 ## Encryption Support
 Document Graph Explorer supports encryption of a specific content item’s value. In DGE, the user is prompted to enter a password that is used for symmetric AES encryption. This secret simply encrypts the value and the ciphertext is persisted in the document. 
@@ -22,3 +22,6 @@ Document Graph is built to be highly composable and also support an ergonomic de
 
 ## Plugin Architecture for Custom Renderers and Editors
 Developers can include special fields within their document to enable custom viewers or editors. For example, if the field “preferred_renderer” or “preferred_editor” is populated with an endpoint, this endpoint will be used to render or edit the document.
+
+## Elastic Search
+Document Graph Explorer has integrated support for using a search engine to find documents without navigating the graph.
