@@ -21,7 +21,9 @@ Document Graph is a flexible persistence and modeling framework for blockchain a
 
 3. Only the owner can edit a document or an edge (e.g. only `dao.hypha` can edit a document created by the DHO)
 
-4. Anyone can extend an existing graph with documents that they are the `owner` of. This allows for multitenant control over different data in the same graph. 
+4. Anyone can extend an existing graph with documents that they are the `owner` of. This allows for multitenant control over different data in the same graph.
+
+![Extend example](dge2.png)
 
 5. Document Graph includes a web-based Explorer and Editor that allows non-technical users to directly `create`, `edit`, `erase`, and `extend`. Screenshot shows `edit` screen where user has encrypted the `reference` field and saved the `secret key` to IPFS.  **(not recommended, this was just to illustrate the functionality)**
 
@@ -30,6 +32,10 @@ Document Graph is a flexible persistence and modeling framework for blockchain a
 6. Actions can be deployed anywhere on the layer 1 to interact with the graph. The code in those contracts will modify the graph contents, but will require the permission of the `owner` that created it. The default contract has all of the basic actions (e.g. trigger a proposal if the right DAO/DHO/owner for edits). But it is compatible with any contracts on the layer 1, so it allows for trustless deployment of business logic that scales to the bounds of the layer 1. 
 
 7. All data in the graph is accessible via GraphQL endpoints, which can be used to integrate any client or stitched to other graph data sources.
+
+8. The documents can be certified by anyone, this allows to ensure the content of the document
+
+![Certificate example](certificate.png)
 
 ## Example Graph
 - member is a member of two organizations
