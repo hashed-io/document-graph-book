@@ -181,3 +181,58 @@ Once you write the needed information you can delete the document.
 THIS WILL PERMANENTLY DELETE THE DOCUMENT AND IT CANNOT BE UNDONE.
 
 # Advanced topics
+
+Congratulations! If you are reading this part is because you are an expert creating documents on Document Graph Explorer (DGE). So now lets talk about the more advance topics that DGE offers.
+
+## Using IPFS to mask content that should not be immutable.
+
+The very first one is using it to store the information in IPFS, that way the content stays the same as it is hashed with an unique CID and is immutable as long as the document points to the same CID.
+
+To make that possible lets go to the old document we made (or feel free to create a new one)
+
+If you want to implement this feature on your document, you need to edit or create a new content. Below it will appear a toggle buttom that says IPFS
+
+![edit content](./images/tutorials/encrypt-1.png)
+
+Once you press that buttom, click save and now it will appear as a __FILE__, press it to see it's content!
+
+Now you know how to store content as IPFS
+
+
+## Using the markdown editor
+
+You may find a little plain to write your documents without a way to create content with custom views of it. 
+
+Good news! Document Graph Explorer renders contents wrote with Markdown, and its way to simple to use this feature, in your document, just create a new content and write it as you were writing any markdown document.
+
+You can see a [markdown cheat sheet](https://www.markdownguide.org/cheat-sheet) if you need some examples.
+
+PS. It may not render all of the elements and LaTex is not supported.
+
+## Encryption
+
+Imagine you want to store something that's private and you don't want everybody to reads that. For that reason DGE offers a way to encrypt your data. With DGE you can encrypt your data with an advance encryption standard: AES-256 symmetric, that is virtually impenetrable using brute-force methods.
+
+It sounds pretty cool, right? To do that you need to edit or create a new content. Imagine the example of extend document when we wrote the id of the card we are sending to Santa, we don't really want to show that to the world, so lets encrypt that content!
+
+Navigate to your document using the search bar and log in with your account. Once it's done you can press the edit buttton on the bottom of the page. After that press the edit buttom next to the content you want to edit.
+
+It should look like this:
+
+![edit content](./images/tutorials/encrypt-1.png)
+
+You can see two toggle button one for IPFS and other to encrypt your data. Press the one that says Encrypt.
+Once you’ve selected the option, a Pop up will appear. 
+
+![encrypt content](./images/tutorials/encrypt-popup.png)
+
+Next you need to provide a seed to encrypt and decrypt your data, see it as a key that would open or close the content. That key would not be stored in any place, so make sure you store it in a save place you'll remember, because once the content is encrypted it cannot be decrypted without that key!
+
+
+Click Confirm. Now your content is encrypted and only you can decrypt it! You can also share the key to other people if you want them to see the content.
+
+## Searching contents of linked IPFS documents
+
+If you are an IPFS expert or enthusiast, you may want to store a very large file. In DGE you cant point a CID in the content to point to a file stored in IPFS. Imagine you have uploaded a book or a video and you want to include it in your document.
+
+To upload it you can use of the many IPFS node distributors that exists. Or if you have already your CID you can store it as `ipfs://CID` and it automatically point to that content when you press the new FILE button that will appear once you save it.
