@@ -1,9 +1,14 @@
 # Getting Started
 > ## Prerequisites
 > [Readme](https://dge.hashed.systems/explore?document_id=0&endpoint=https%3A%2F%2Fhashed.systems%2Falpha-dg-mainnet%2Fgraphql)
+>
+> *This apply for the following actions:*
+> *Create, Edit, Delete, Extend,Certify [^note]*
+>
 > * A Telos account
 > * [Anchor](https://greymass.com/en/anchor/)  wallet installed
-
+>
+[^note] You do not need the prerequisite to navigate through the Graph
 ## Features
 * Read document 
 * Create document
@@ -15,7 +20,6 @@
 * Elastic Search Support
 * Save content in IPFS
 * Encrypt data
-
 ## How to create a document
 The Document Graph Explorer allows the creation of new documents for any user. For that, you need to click on the button New document
 
