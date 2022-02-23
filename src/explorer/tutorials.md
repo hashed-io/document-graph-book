@@ -41,7 +41,7 @@ To do that, you'll need to press the Sign in button in the top right corner. Onc
 
 ![Anchor login prompt](./images/tutorials/anchor-login.jpeg)
 
-Accept de identity authority to access all options in the Document Graph Explorer.
+Accept the identity authority to access all options in the Document Graph Explorer.
 
 The steps to create a document are very straightforward, go ahead and press new the buttom that says **New Document**
 
