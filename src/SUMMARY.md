@@ -20,6 +20,7 @@
 # Explorer
 - [Getting Started](explorer/getting-started.md)
 - [Tutorials](explorer/tutorials.md)
+- [Tutorials Videos](explorer/tutorials-videos.md)
 
 # ```dgctl``` CLI
 - [Installation](dgctl/installation.md)
