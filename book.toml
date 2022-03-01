@@ -4,6 +4,11 @@ language = "en"
 multilingual = false
 src = "src"
 title = "Document Graph"
-default-theme = "rust"
+default-theme = "navy"
 
 [preprocessor.plantuml]
+[output.html]
+default-theme = "navy"
+preferred-dark-theme = "navy"
+git-repository-url = "https://github.com/hashed-io"
+git-repository-icon = "fa-github"
